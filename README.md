@@ -11,8 +11,19 @@
 
 <img src="http://barrage.codemcx.work/public/qrcode.png" alt="高仿B站web移动端"/>
 
-## 实现功能
+## 技术点
+* react
+* react-router-dom
+* react-router-config
+* redux(数据管理)
+* redux-thunk(支持异步Action)
+* react-helmet(Head管理)
+* react-lazyload(图片懒加载)
+* loadable-components(代码分割)
+* cross-fetch(浏览器和node通用的Fetch API)
+* express(后端服务)
 
+## 实现功能
 * 首页
 * 分类页
 * 排行榜
