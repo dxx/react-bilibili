@@ -1,0 +1,119 @@
+@import "../../assets/stylus/px2rem.styl"
+
+.top-wrapper
+  position: fixed
+  top: 0
+  width: 100%
+  max-width: 640px
+  background-color: #ffffff
+  z-index: 10
+  padding-bottom: px2rem(2)
+  .header
+    position relative
+    height: px2rem(40)
+    line-height: px2rem(40)
+    text-align: center
+    font-size: px2rem(15.98)
+    color: #fb7299
+    img
+      position: absolute
+      top: px2rem(10)
+      left: px2rem(20)
+      height: px2rem(20)
+.top-bottom
+  padding-top: px2rem(82)
+.ranking-list
+  padding-top: px2rem(16)
+  padding-bottom: px2rem(47)
+  background-color: #f4f4f4
+  .video-wrapper
+    margin-top: px2rem(20)
+    .ranking
+      float: left
+      width: px2rem(49.35)
+      line-height: px2rem(73.08)
+      text-align: center
+      color: #999999
+      font-size: px2rem(14)
+      img
+        vertical-align: middle
+        width: .94rem
+    .info
+      height: px2rem(73.08)
+      margin-left: px2rem(49.35)
+      margin-right: px2rem(12)
+      position relative
+      .image-container
+        float: left
+        width: px2rem(117.5)
+        height: 100%
+        border-radius: px2rem(4)
+        overflow: hidden
+        background-color: #e7e7e7
+        background-image: url("../../assets/images/tv.png")
+        background-size: px2rem(73.08) px2rem(73.08)
+        background-position: px2rem(22) 0
+        background-repeat: no-repeat
+        img
+          width: 100%
+      .info-wrapper
+        position: absolute
+        left: px2rem(130)
+        p
+          margin: 0
+          height: px2rem(32)
+          line-height: px2rem(16)
+          overflow hidden
+          text-align: left
+          font-size: px2rem(14)
+          color: #212121
+          letter-spacing: 0
+          word-break: break-all
+        .owner-wrapper
+          margin-top: px2rem(4)
+          height: px2rem(22)
+          line-height: @height
+          .icon-up
+            display: inline-block
+            width: px2rem(14)
+            height: px2rem(12)
+            background-image: url("../../assets/images/ico-up.png")
+            background-size: 100% 100%
+            background-position: center center
+            vertical-align: middle
+          .owner
+            font-size: px2rem(12)
+            color: #999999
+            margin-left: px2rem(6)
+            vertical-align: middle
+        .count-info
+          margin-top: px2rem(2)
+          color: #999999
+          font-size: 0
+          span
+            display: inline-block
+            vertical-align: middle
+          .icon-play, .icon-barrage
+            width: px2rem(14)
+            height: px2rem(12)
+            background-size: 100% 100%
+            background-position: center center
+          .icon-play
+            background-image: url("../../assets/images/ico-play.png")
+          .icon-barrage
+            margin-left: px2rem(15)
+            background-image: url("../../assets/images/ico-danmu.png")
+          .play-count, .barrage-count
+            margin-left: px2rem(6)
+            width: px2rem(56)
+            font-size: px2rem(11)
+.loading
+  position: absolute
+  width: 100%
+  top: px2rem(86)
+  bottom: 0
+  padding-top: px2rem(160)
+  font-size: px2rem(16)
+  text-align: center
+  color: #212121
+  background-color: #f4f4f4

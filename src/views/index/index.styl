@@ -1,0 +1,63 @@
+@import "../../assets/stylus/px2rem.styl"
+
+.top-wrapper
+  position: fixed
+  width: 100%
+  max-width: 640px
+  background-color: #ffffff
+  z-index: 10
+  padding-bottom: px2rem(2)
+  .partition
+    position: relative
+    .tab-bar
+      margin-right: px2rem(56)
+    .switch
+      position: absolute
+      top: 0
+      bottom: 0
+      right: px2rem(22)
+      line-height: px2rem(40)
+      font-size: px2rem(18)
+  .drawer-position
+    position: absolute
+    width: 100%
+    top: px2rem(44)
+    z-index: 2
+.content-wrapper
+  padding-top: px2rem(86)
+  .banner-slider
+    padding: 0 px2rem(12)
+    height: px2rem(110)
+    > div
+      height: 100%
+      border-radius: px2rem(8)
+  .video-list
+    padding-top: px2rem(12)
+    padding-left: px2rem(6)
+    padding-right: px2rem(6)
+
+:global(.swiper-pagination-wrapper)
+  position: absolute
+  left: 0
+  bottom: 0
+  width: 100%
+  text-align: center
+  z-index: 10
+:global(.swiper-pagination-wrapper > .swiper-pagination)
+  position: relative
+  display: inline-block
+  top: px2rem(2)
+  padding: 0 px2rem(7.52)
+  border-radius: px2rem(5)
+  background-color: rgba(0, 0, 0, .5)
+  z-index: 0
+:global(.swiper-pagination-bullet)
+  float: left
+  width: px2rem(5)
+  height: @width
+  margin: px2rem(2.5)
+  border-radius: px2rem(2.5)
+  background-color: #ffffff
+  opacity: 1
+:global(.swiper-pagination-bullet-active)
+  background-color: #de698c

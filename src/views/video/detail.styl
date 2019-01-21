@@ -1,0 +1,188 @@
+@import "../../assets/stylus/px2rem.styl"
+@import "../../assets/stylus/1pxborder.styl"
+
+.top-wrapper
+  position: fixed
+  width: 100%
+  max-width: 640px
+  z-index: 10
+.content-wrapper
+  padding-top: px2rem(44)
+  padding-bottom: px2rem(20)
+  .video-container
+    position: relative
+    height: px2rem(211)
+    z-index: 99
+  .video-info-container
+    position relative
+    height: px2rem(56)
+    margin-top: px2rem(20)
+    transition: height .5s
+    transform: translateZ(0)
+    overflow: hidden
+    .icon-arrow
+      position: absolute
+      top: px2rem(4)
+      right: px2rem(12)
+      font-size: px2rem(18)
+      transition: transform .1s
+      &.rotate
+        transform: rotateZ(180deg)
+    .info-wrapper
+      padding: 0 px2rem(12) px2rem(11) px2rem(12)
+      border-bottom: px2rem(1) solid #e7e7e7
+      .title
+        margin-right: px2rem(20)
+        margin-bottom: px2rem(8)
+        color: #212121
+        font-size: px2rem(16)
+        line-height: px2rem(26)
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+      .video-info
+        line-height: px2rem(15)
+        color: #999999
+        font-size: px2rem(12)
+        .up-user-name
+          margin-right: px2rem(18)
+          color: #212121
+        span
+          margin-right: px2rem(8)
+      .desc
+        font-size: px2rem(12)
+        color: #999999
+        line-height: px2rem(18)
+        margin-top: px2rem(10)
+        word-break: break-all
+      .position
+        margin-top: px2rem(8)
+        &:after
+          content: ""
+          display: block
+          height: 0
+          clear: both
+        a, span
+          float: left
+          font-size: px2rem(12)
+          margin-right: px2rem(5)
+        a
+          color: #fb7299
+        span
+          color: #cccccc
+        .aid
+          color: #999999
+  .recommend-list
+    margin-top: px2rem(16)
+    padding: 0 px2rem(12)
+    .video-wrapper
+      height: px2rem(73.08)
+      margin-top: px2rem(14)
+      &:first-child
+        margin-top: 0
+      .image-container
+        position: relative
+        float: left
+        width: px2rem(117.5)
+        height: 100%
+        border-radius: px2rem(6)
+        overflow: hidden
+        background-color: #e7e7e7
+        background-image: url("../../assets/images/tv.png")
+        background-size: px2rem(73.08) px2rem(73.08)
+        background-position: px2rem(22) 0
+        background-repeat: no-repeat
+        img
+          width: 100%
+          height: @width
+        .duration
+          position: absolute
+          right: px2rem(4)
+          bottom: px2rem(4)
+          padding: 0 px2rem(4)
+          font-size: px2rem(11)
+          line-height: px2rem(15)
+          color: #ffffff
+          border-radius: px2rem(2)
+          background-color: rgba(0, 0, 0, 0.3)
+      .info-wrapper
+        margin-left: px2rem(130)
+        .title
+          height: px2rem(32)
+          line-height: px2rem(16)
+          font-size: px2rem(14)
+          color: #212121
+          text-align: left
+          overflow hidden
+          word-break: break-all
+        .up-user
+          margin-top: px2rem(10)
+          font-size: px2rem(12)
+          color: #212121
+        .video-info
+          margin-top: px2rem(4)
+          line-height: px2rem(12)
+          color: #999999
+          font-size: px2rem(12)
+  .comment
+    margin-top: px2rem(31)
+    .comment-title
+      margin-left: px2rem(12)
+      font-size: px2rem(15)
+      font-weight: 400
+      .comment-count
+        margin-left: px2rem(4)
+        color: #999999
+    .comment-list
+      padding: 0 px2rem(12)
+      .comment-wrapper
+        padding: px2rem(18) 0 px2rem(15.54) px2rem(50)
+        position: relative
+        overflow hidden
+        borderTop(#cccccc)
+        &:first-child
+          &:before
+            display: none
+        .comment-up-pic
+          position: absolute
+          top: px2rem(18)
+          left: 0
+          width: px2rem(40)
+          height: @width
+          border-radius: 50%
+          overflow hidden
+        .comment-time
+          position: absolute
+          top: px2rem(19)
+          right: 0
+          font-size: px2rem(11.6)
+          color: #999999
+        .comment-up-user
+          max-width: 60%
+          margin-bottom: px2rem(12)
+          font-size: px2rem(13)
+          color: #757575
+          a
+            color: #757575
+        .comment-content
+          font-size: px2rem(14)
+          color: #212121
+          white-space: pre-line
+          line-height: px2rem(19)
+    .load-more, .no-more
+      line-height: px2rem(40)
+      font-size: px2rem(14.1)
+      text-align: center
+      color: #fb7299
+    .load-more
+      color: #fb7299
+    .no-more
+      color: #999999
+.loading
+  line-height: px2rem(40)
+  font-size: px2rem(12)
+  text-align: center
+  color: #212121
+  padding-bottom: px2rem(400)
+a
+  text-decoration: none

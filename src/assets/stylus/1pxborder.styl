@@ -1,0 +1,29 @@
+borderTop(color)
+  position: relative
+  &:before
+    content: ""
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    border-top: 1px solid color
+    overflow hidden
+    borderMedia()
+borderBottom(color)
+  position: relative
+  &:after
+    content: ""
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    border-bottom: 1px solid color
+    overflow hidden
+    borderMedia()
+borderMedia()
+  @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+    -webkit-transform: scaleY(.5)
+    transform: scaleY(.5)
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    -webkit-transform: scaleY(.333)
+    transform: scaleY(.333)

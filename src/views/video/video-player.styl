@@ -1,0 +1,214 @@
+@import "../../assets/stylus/px2rem.styl"
+
+.video-player
+  position: relative
+  height: 100%
+  &.fullscreen
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+  video
+    background-color: #000000
+  .barrage
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    height: 100%
+    user-select: none
+  .controls
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+    .play-button
+      position: absolute
+      right: px2rem(12)
+      bottom: px2rem(56)
+      width: px2rem(46)
+      height: px2rem(46)
+      opacity: .85
+      background-size: 100% auto
+      &.play
+        background-image: url("../../assets/images/tv-play.png")
+      &.pause
+        background-image: url("../../assets/images/tv-pause.png")
+    .control-bar
+      position absolute
+      bottom: 0
+      width: 100%
+      height: px2rem(44)
+      background-color: rgba(0, 0, 0, .5)
+      .left
+        display: inline-block
+        line-height: px2rem(44)
+        color: #ffffff
+        font-size: px2rem(15.6)
+        font-family: arial, sans-serif
+        & > span
+          display: inline-block
+        .time, .total-duration
+          width: px2rem(50)
+        .time
+          text-align: right
+        .split
+          width: px2rem(7.6)
+          text-align: center
+        .total-duration
+          text-align: left
+      .center
+        position: absolute
+        left: px2rem(108)
+        top: px2rem(21)
+        right: px2rem(108)
+        height: px2rem(2)
+        .progress-wrapper
+          position: relative
+          height: 100%
+          background-color: #4c4c4c
+          .progress
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            background-color: #de698c
+            &:after
+              content: ""
+              display: block
+              position: absolute
+              top: px2rem(-6.6)
+              right: px2rem(-14)
+              width: px2rem(14)
+              height: px2rem(14)
+              background-color: #ffffff
+              box-shadow: px2rem(0.5) px2rem(0.5) px2rem(3) #000000
+              border-radius: 50%
+      .right
+        float: right
+        margin-right: px2rem(12)
+        .barrage-on, .barrage-off
+          display: inline-block
+          width: px2rem(24)
+          height: @width
+          margin-top: px2rem(10)
+          background-size: 100% auto
+        .barrage-on
+          background-image: url("../../assets/images/barrage-on.png")
+        .barrage-off
+          background-image: url("../../assets/images/barrage-off.png")
+        .fullscreen
+          display: inline-block
+          width: px2rem(24)
+          height: @width
+          margin-top: px2rem(10)
+          margin-left: px2rem(16)
+          background-image: url("../../assets/images/fullscreen.png")
+          background-size: 100% auto
+  .cover
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    font-size: px2rem(15)
+    color: #ffffff
+    background-color: #7d7d7d
+    overflow: hidden
+    z-index: 99
+    .title
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      text-align: center
+      line-height: px2rem(32)
+      z-index: 1
+    .pic
+      position: absolute
+      width: 100%
+      height: @width
+      opacity: .85
+      filter: blur(px2rem(8))
+      border-style: none
+    .pre-play
+      position absolute
+      left: 0
+      right: 0
+      bottom: px2rem(14)
+      .duration
+        display: inline-block
+        padding: 0 px2rem(8)
+        margin-left: px2rem(12)
+        font-size: px2rem(12)
+        line-height: px2rem(20)
+        border: px2rem(1) solid hsla(0, 0%, 100%, .6)
+        background-color: hsla(0, 0%, 100%, .2)
+        border-radius: px2rem(2)
+      .preview
+        float: right
+        width: px2rem(46)
+        height: px2rem(46)
+        margin-right: px2rem(12)
+        margin-top: px2rem(-20)
+        background: url("../../assets/images/tv-play.png")
+        background-size: 100% auto
+  .loading
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    color: #ffffff
+    font-size: px2rem(15)
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 99
+    .wrapper
+      text-align: center
+      .img
+        width: px2rem(40)
+        height: @width
+      .text
+        display: block
+        margin-top: px2rem(4)
+  .finish-cover
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 100
+    overflow hidden
+    .cover-pic
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: @width
+      z-index: -1
+    .cover-wrapper
+      position: relative
+      height: 100%
+      padding: 0 px2rem(12)
+      font-size: px2rem(14)
+      color: #ffffff
+      background-color: rgba(0, 0, 0, .8)
+      .replay
+        position: absolute
+        right: px2rem(12)
+        bottom: px2rem(30)
+        .replay-icon
+          display: inline-block
+          float: left
+          width: px2rem(16)
+          height: px2rem(16)
+          margin-top: px2rem(2)
+          margin-right: px2rem(3)
+          background-image: url("../../assets/images/ico-replay.png")
+          background-size: 100% 100%

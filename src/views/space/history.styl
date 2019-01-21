@@ -1,0 +1,84 @@
+@import "../../assets/stylus/px2rem.styl"
+@import "../../assets/stylus/1pxborder.styl"
+
+body
+  background-color: #f4f4f4
+.tab-wrapper
+  display: flex
+  borderTop(#979797)
+  borderBottom(#979797)
+  background-color: #ffffff
+  .tab-item
+    flex: 1
+    text-align: center
+    &.current
+      span
+        position: relative
+        color: #fb7299
+        &:after
+          position: absolute
+          left: 0
+          bottom: px2rem(4)
+          content: ""
+          width: 100%
+          height: px2rem(2.2)
+          border-radius: px2rem(1.1)
+          background-color: #fb7299
+    span
+      display: inline-block
+      font-size: px2rem(14)
+      color: #666666
+      line-height: px2rem(38)
+.history
+  padding: 0 px2rem(12) px2rem(19) px2rem(12)
+  .history-item
+    margin-top: px2rem(8)
+    .item-title
+      font-size: px2rem(14)
+      color: #999999
+      line-height: px2rem(34)
+    .item-wrapper
+      height: px2rem(73.194)
+      margin-bottom: px2rem(19)
+      &:last-child
+        margin-bottom: 0
+      .img-container
+        float: left
+        width: px2rem(117.312)
+        height: 100%
+        border-radius: px2rem(6)
+        background-color: #e7e7e7
+        background-image: url("../../assets/images/tv.png")
+        background-size: px2rem(73.08) px2rem(73.08)
+        background-position: px2rem(22) 0
+        background-repeat: no-repeat
+        overflow: hidden
+        img
+          width: 100%
+          height: @width
+      .info
+        margin-left: px2rem(130)
+        .title
+          height: px2rem(34)
+          line-height: px2rem(17)
+          font-size: px2rem(14)
+          color: #212121
+          overflow: hidden
+        .time
+          margin-top: px2rem(24)
+          height: px2rem(14)
+          line-height: px2rem(14)
+          font-size: px2rem(12)
+          color: #999999
+.tips
+  padding-top: px2rem(85.2)
+  text-align: center
+  img
+    display: block
+    width: px2rem(280)
+    margin: 0 auto
+  .text
+    font-size: px2rem(16)
+    color: #999999
+    a
+      color: #fb7299

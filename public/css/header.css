@@ -1,0 +1,31 @@
+.header {
+  height: 1.4rem;
+  padding: .4rem 0;
+  background-color: #ffffff;
+}
+.logo {
+  display: inline-block;
+  width: 3.1rem;
+  margin-left: .9rem;
+}
+.avatar {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.avatar svg {
+  border-radius: 50%
+}
+.search-icon {
+  display: inline-block;
+  margin-left: 10.5rem;
+  margin-right: 1.1rem;
+}
+.search-icon svg {
+  width: 1.2rem;
+  -webkit-transform: translateY(.06rem);
+  transform: translateY(.06rem);
+}
+a {
+  text-decoration: none;
+}

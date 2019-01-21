@@ -1,0 +1,22 @@
+body {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  -webkit-tap-highlight-color: transparent;
+}
+.not-found-container {
+  padding-top: 6rem;
+  text-align: center;
+}
+.image-container {
+  width: 5.4rem;
+  margin: 0 auto;
+}
+.image-container img {
+  width: 100%;
+}
+.tip {
+  margin-top: 1rem;
+  font-size: .6rem;
+  color: #999999;
+}

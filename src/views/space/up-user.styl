@@ -1,0 +1,172 @@
+@import "../../assets/stylus/px2rem.styl"
+@import "../../assets/stylus/1pxborder.styl"
+
+.up-user-container
+  position: relative
+  padding: px2rem(60) px2rem(12) px2rem(18) px2rem(12)
+  .face
+    position: absolute
+    top: px2rem(-40)
+    left: .6rem
+    width: px2rem(80)
+    height: @width
+    border-radius: 50%
+    background: url("../../assets/images/noface.gif")
+    background-size: 100% 100%
+    overflow hidden
+    img
+      width: 100%
+  .info
+    span, img
+      float: left
+    &:after
+      content: ""
+      display: block
+      height: 0
+      clear: both
+    .name
+      font-size: px2rem(20)
+      color: #212121
+    .sex
+      margin-left: px2rem(12)
+      margin-top: px2rem(7)
+      font-size: px2rem(16)
+    img
+      width: px2rem(28)
+      margin-left: px2rem(6)
+      margin-top: px2rem(8)
+    .uid
+      margin-left: px2rem(6)
+      margin-top: px2rem(6)
+      font-size: px2rem(14)
+      color: #212121
+  .detail
+    margin-top: px2rem(10)
+    .stats
+      font-size: px2rem(14)
+      color: #757575
+      .follow, .fans
+        color: #212121
+      .fans
+        margin-left: px2rem(20)
+    .introduce
+      position: relative
+      height: px2rem(16)
+      margin-top: px2rem(12)
+      transition: height .5s
+      transform: translateZ(0)
+      overflow: hidden
+      .arrow
+        position: absolute
+        top: 0
+        right: 0
+        font-size: px2rem(18)
+        transition: transform .1s
+        &.rotate
+          transform: rotateZ(180deg)
+      .content
+        margin-right: px2rem(50)
+        line-height: px2rem(16)
+        font-size: px2rem(13)
+        color: #999999
+        word-wrap: break-word
+.masterpiece
+  padding-bottom: px2rem(12)
+  .title
+    padding-left: px2rem(12)
+    font-size: px2rem(14)
+    line-height: px2rem(40)
+    color: #212121
+  .video-list
+    padding-left: px2rem(12)
+    padding-bottom: px2rem(12)
+    .video-wrapper
+      padding: px2rem(9) 0
+      borderBottom(#cccccc)
+      &:first-child
+        padding-top: 0
+      &:last-child
+        &:after
+          display: none
+      a
+        display: block
+        height: px2rem(73.08)
+        text-decoration: none
+      .image-container
+        position: relative
+        float: left
+        width: px2rem(117.5)
+        height: 100%
+        border-radius: px2rem(6)
+        overflow: hidden
+        background-color: #e7e7e7
+        background-image: url("../../assets/images/tv.png")
+        background-size: px2rem(73.08) px2rem(73.08)
+        background-position: px2rem(22) 0
+        background-repeat: no-repeat
+        img
+          width: 100%
+          height: @width
+        .duration
+          position: absolute
+          right: px2rem(4)
+          bottom: px2rem(4)
+          padding: 0 px2rem(4)
+          font-size: px2rem(11)
+          line-height: px2rem(15)
+          color: #ffffff
+          border-radius: px2rem(2)
+          background-color: rgba(0, 0, 0, 0.3)
+      .info-wrapper
+        margin-left: px2rem(130)
+        margin-right: px2rem(12)
+        .info-title
+          height: px2rem(32)
+          line-height: px2rem(16)
+          font-size: px2rem(14)
+          color: #212121
+          text-align: left
+          overflow hidden
+          word-break: break-all
+        .count-info
+          margin-top: px2rem(18)
+          color: #999999
+          span
+            display: inline-block
+            vertical-align: middle
+          .icon-play, .icon-barrage
+            width: px2rem(14)
+            height: px2rem(12)
+            background-size: 100% 100%
+            background-position: center center
+          .icon-play
+            background-image: url("../../assets/images/ico-play.png")
+          .icon-barrage
+            margin-left: px2rem(15)
+            background-image: url("../../assets/images/ico-danmu.png")
+          .play-count, .barrage-count
+            margin-left: px2rem(6)
+            width: px2rem(56)
+            font-size: px2rem(11)
+  .load-more
+    line-height: px2rem(40)
+    font-size: px2rem(14.1)
+    text-align: center
+    color: #fb7299
+    background-color: #e7e7e7
+  .loading
+    line-height: px2rem(40)
+    font-size: px2rem(14.1)
+    text-align: center
+    color: #999999
+  .tips
+    text-align: center
+    img
+      display: block
+      width: px2rem(240)
+      margin: 0 auto
+    .text
+      display: inline-block
+      margin-top: px2rem(20)
+      font-size: px2rem(16)
+      color: #999999

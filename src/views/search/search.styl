@@ -1,0 +1,140 @@
+@import "../../assets/stylus/1pxborder.styl"
+
+html, body, :global(#app), :global(.view), :global(.search)
+  height: 100%
+:global(.search)
+  position: relative
+.search-top
+  position: fixed
+  width: 100%
+  max-width: 640px
+  height: 2.2rem
+  z-index: 10
+  background-color: #ffffff
+  .box-wrapper
+    position: relative
+    display: inline-block
+    width: 82%
+    height: 1.5rem
+    margin-top: .35rem
+    margin-left: .625rem
+    border: .025rem solid #e7e7e7
+    background-color: #f4f4f4
+    border-radius: .2rem
+    i:first-child
+      position: absolute
+      top: .28rem
+      left: .6rem
+      font-size: .9rem
+    .search-box
+      display: block
+      width: 100%
+      height: @width
+      padding-left: 1.95rem
+      background: none
+      border: none
+      color: #505050
+      font-size: .65rem
+      outline: none
+      appearance: none
+    .search-close
+      position: absolute
+      top: 0
+      right: 0
+      width: 1.5rem
+      height: 1.5rem
+      background: url("../../assets/images/search-close.png") no-repeat
+      background-size: .7rem .7rem
+      background-position: center
+  .cancel
+    float: right
+    margin-top: .7rem
+    margin-right: .625rem
+    color: #fb7299
+    font-size: .7rem
+.words
+  padding: 2.2rem .625rem 1.25rem .625rem
+  .word-title
+    margin-top: .8rem
+    color: #999999
+    font-size: .7rem
+  .word-wrapper
+    height: 4.8rem
+    overflow hidden
+    .word-item
+      float: left
+      padding: .47rem .6rem
+      margin-top: .6rem
+      margin-right: .426rem
+      color: #505050
+      font-size: .65rem
+      line-height: .65rem
+      text-align: center
+      border: .05rem solid #cccccc
+      border-radius: .8rem
+.suggest
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1
+  padding-top: 2.2rem
+  padding-left: .625rem
+  min-height: 100%
+  box-sizing: border-box
+  background-color: #f4f4f4
+  .suggest-item
+    height: 2.2rem
+    line-height: 2.2rem
+    borderBottom(#cccccc)
+    p
+      width: 75%
+      margin: 0
+      color: #212121
+      font-size: .7rem
+      overflow hidden
+      :global(.suggest_high_light)
+        font-style: normal
+        color: #fb7299
+.history
+  border-top: .5rem solid #f4f4f4
+  .history-title
+    margin-left: .625rem
+    color: #999999
+    font-size: .7rem
+    line-height: 2.3rem
+  .history-list
+    margin-left: .625rem
+    .history-item
+      height: 2.2rem
+      borderBottom(#cccccc)
+      .history-ico
+        float: left
+        width: .8rem
+        height: @width
+        margin-top: .7rem
+        background-image: url("../../assets/images/history.png")
+        background-size: 100% 100%
+      .name
+        width: 14rem
+        line-height: 2.2rem
+        margin-left: 1.25rem
+        font-size: .7rem
+        color: #505050
+        overflow hidden
+  .history-clear
+    text-align: center
+    color: #999999
+    font-size: .7rem
+    line-height: 2.3rem
+.search-result
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 100%
+  padding-top: 2.2rem
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button
+  display: none

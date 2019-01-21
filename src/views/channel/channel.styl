@@ -1,0 +1,59 @@
+@import "../../assets/stylus/px2rem.styl"
+
+body
+  background-color: #f4f4f4
+.top-wrapper
+  position: fixed
+  width: 100%
+  max-width: 640px
+  background-color: #ffffff
+  z-index: 10
+  .partition
+    position: relative
+    .tab-bar
+      margin-right: px2rem(56)
+    .switch
+      position: absolute
+      top: 0
+      bottom: 0
+      right: px2rem(22)
+      line-height: px2rem(40)
+      font-size: px2rem(18)
+  .drawer-position
+    position: absolute
+    width: 100%
+    top: px2rem(44)
+    z-index: 2
+  .second-tab-bar
+    background-color: #f9f9f9
+.special-line1, .special-line2
+  height: px2rem(1)
+  border-bottom: @height solid #cccccc
+.special-line1
+  padding-top: px2rem(124)
+.special-line2
+  padding-top: px2rem(84)
+.partition-wrapper
+  .recommend
+    position: relative
+    .title
+      margin-left: px2rem(12)
+      font-size: px2rem(16)
+      color: #212121
+      line-height: px2rem(53.11)
+    .ranking
+      position: absolute
+      top: px2rem(14)
+      right: px2rem(12)
+      .icon-ranking, .icon-right
+        vertical-align: middle
+      .icon-ranking
+        font-size: px2rem(18)
+      .icon-right
+        font-size: px2rem(14.1)
+      .text
+        margin: 0 px2rem(7) 0 px2rem(6)
+        color: #ffa726
+        font-size: px2rem(14.1)
+    .recommend-content
+      padding: 0 px2rem(6)

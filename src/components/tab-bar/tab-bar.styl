@@ -1,0 +1,31 @@
+@import "../../assets/stylus/px2rem.styl"
+
+.tab-bar
+  display: flex
+  overflow-x: scroll
+  overflow-y: hidden
+  height: px2rem(40)
+  &::-webkit-scrollbar
+    display: none
+  .tab
+    flex: 0 0 auto
+    padding: 0 px2rem(16)
+    color: #757575
+    &.indicate
+      color: #fb7299
+      span:after
+        position: absolute
+        content: ""
+        width: 100%
+        left: 0
+        bottom: px2rem(2)
+        border-bottom: px2rem(2.2) solid #fb7299
+    &.highlight
+      color: #fb7299
+    span
+      position: relative
+      display: inline-block
+      padding: 0 px2rem(2)
+      font-size: px2rem(14)
+      line-height: px2rem(40)
+      
