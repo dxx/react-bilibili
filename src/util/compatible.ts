@@ -1,4 +1,4 @@
-function getTransitionEndName(dom) {
+function getTransitionEndName(dom: HTMLElement): string | undefined {
   const cssTransition = ["transition", "webkitTransition"];
   const transitionEnd = {
     transition: "transitionend",

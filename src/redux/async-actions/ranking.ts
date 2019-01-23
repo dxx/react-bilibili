@@ -3,7 +3,7 @@ import { getRankingPartitions } from "../../api/partitions";
 import { getRankings } from "../../api/ranking";
 import { createPartitionTypes, createVideoByRanking } from "../../models";
 
-export function getRankingVideoList(rId) {
+export function getRankingVideoList(rId: number) {
   return (dispatch) => {
     return Promise.all([
       getRankingPartitions(),
@@ -27,7 +27,7 @@ export function getRankingVideoList(rId) {
   }
 }
 
-export function getVideoList(rId) {
+export function getVideoList(rId: number) {
   return (dispatch) => {
     return getRankings(rId).then((result) => {
       if (result.code === "1") {

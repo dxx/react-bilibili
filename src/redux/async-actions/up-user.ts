@@ -2,7 +2,7 @@ import { setShouldLoad, setUpUserInfo } from "../actions";
 import { getUserInfo } from "../../api/up-user";
 import { UpUser } from "../../models";
 
-export default function getUser(mId) {
+export default function getUser(mId: number) {
   return (dispatch) => {
     return getUserInfo(mId).then((result) => {
       if (result.code === "1") {

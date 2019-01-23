@@ -46,7 +46,7 @@ class Video {
   }
 }
 
-function createVideo(data) {
+function createVideo(data): Video {
   return new Video(
     data.aid,
     data.title,
@@ -64,7 +64,7 @@ function createVideo(data) {
   );
 }
 
-function createVideoByDetail(data) {
+function createVideoByDetail(data): Video {
   return new Video(
     data.aid,
     data.title,
@@ -82,7 +82,7 @@ function createVideoByDetail(data) {
   );
 }
 
-function createVideoByRanking(data) {
+function createVideoByRanking(data): Video {
   return new Video(
     parseInt(data.aid, 10),
     data.title,
@@ -98,7 +98,7 @@ function createVideoByRanking(data) {
   );
 }
 
-function createVideoByLatest(data) {
+function createVideoByLatest(data): Video {
   return new Video(
     data.aid,
     data.title,
@@ -114,7 +114,7 @@ function createVideoByLatest(data) {
   );
 }
 
-function createVideoByUser(data) {
+function createVideoByUser(data): Video {
   return new Video(
     data.aid,
     data.title,
@@ -130,7 +130,7 @@ function createVideoByUser(data) {
   );
 }
 
-function createVideoBySearch(data) {
+function createVideoBySearch(data): Video {
   const times = data.duration.split(":");
   const seconds = parseInt(times[0], 10) * 60 + parseInt(times[1], 10);
   return new  Video(

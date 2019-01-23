@@ -2,7 +2,7 @@
  * 格式化数字
  * 1218807 => 121.9万
  */
-export function formatTenThousand(num) {
+export function formatTenThousand(num: number): string {
   const numStr = String(num);
   if (numStr.length <= 4) {
     return numStr;
@@ -26,7 +26,7 @@ export function formatTenThousand(num) {
  * 0#:##:## => 00:02:00
  * ##:##:## => 0:02:00
  */
-export function formatDuration(second, format) {
+export function formatDuration(second: number, format: string): string {
   let date = new Date();
   date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
   const tempstamp = date.getTime() + second * 1000;

@@ -1,7 +1,7 @@
 /**
  * 图片后缀 iOS使用.jpg Android使用webp
  */
-export function getPicSuffix() {
+export function getPicSuffix(): string {
   const terminal = {
     isIOS: /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent),
     isAndroid: /(Android)/i.test(navigator.userAgent)

@@ -1,4 +1,4 @@
-export function formatDate(date, format) {
+export function formatDate(date: Date, format: string): string {
   const reg = {
     "M+" : date.getMonth() + 1,               // 月份
     "d+" : date.getDate(),                    // 日

@@ -1,6 +1,6 @@
 import fetch from "cross-fetch";
 
-export function getJSON(url, data) {
+export function getJSON(url: string, data) {
   let param = "";
   if (data) {
     const datas = [];
@@ -22,7 +22,7 @@ export function getJSON(url, data) {
     })
 }
 
-export function postJSON(url, data) {
+export function postJSON(url: string, data) {
   return fetch(url, {
     method: "post",
     body: JSON.stringify(data),

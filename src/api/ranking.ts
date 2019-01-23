@@ -2,7 +2,7 @@ import { getJSON } from "./fetch";
 import { URL_RANKING, URL_RANKING_REGION, URL_RANKING_ARCHIVE } from "./url";
 
 // 获取排行榜
-export function getRankings(rId) {
+export function getRankings(rId: number) {
   return getJSON(URL_RANKING + `/${rId}`, null);
 }
 

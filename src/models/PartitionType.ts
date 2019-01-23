@@ -12,7 +12,7 @@ class PartitionType {
   }
 }
 
-function createPartitionTypes(data) {
+function createPartitionTypes(data): PartitionType[] {
   return data.map((item) => new PartitionType(item.tid, item.typename));
 }
 /**
@@ -41,7 +41,7 @@ function createPartitionTypes(data) {
  *   ]
  * }
  */
-function createPartitionTypesTree(data) {
+function createPartitionTypesTree(data): PartitionType[] {
   if (data) {
     let partitionTtypes = [];
     const firstTypes = data["0"];
