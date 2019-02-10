@@ -25,9 +25,12 @@ class ScrollToTop extends React.Component {
     }
   }
   private handleClick() {
+    const initialScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    // 计算每次减少的步长
+    const step = Math.round(initialScrollTop / 10);
     const scroll = () => {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      window.scrollTo(0, scrollTop - 50);
+      window.scrollTo(0, scrollTop - step);
       if (scrollTop > 0) {
         requestAnimationFrame(scroll);
       }
