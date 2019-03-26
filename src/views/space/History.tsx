@@ -1,5 +1,5 @@
 import * as React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import storage, { ViewHistory } from "../../util/storage";
 import { formatDate } from "../../util/datetime";
 

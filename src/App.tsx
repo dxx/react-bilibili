@@ -1,5 +1,5 @@
 import * as React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { Redirect, Switch } from "react-router-dom";
 import router, { NestedRoute, StatusRoute } from "./router";
 import Context, { context } from "./context";

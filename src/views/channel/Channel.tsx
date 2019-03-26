@@ -1,6 +1,6 @@
 import * as React from "react";
 import { match } from "react-router-dom";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { History } from "history";
 import Header from "../../components/header/Header";
 import TabBar from "../../components/tab-bar/TabBar";

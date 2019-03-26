@@ -1,6 +1,6 @@
 import * as React from "react";
 import { match } from "react-router-dom";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import LazyLoad from "react-lazyload";
 import ScrollToTop from "../../components/scroll-to-top/ScrollToTop";
 import Context from "../../context";

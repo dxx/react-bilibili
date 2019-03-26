@@ -1,6 +1,6 @@
 import * as React from "react";
 import { match } from "react-router-dom";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import LazyLoad, { forceCheck } from "react-lazyload";
 import TabBar from "../../components/tab-bar/TabBar";
 import ScrollToTop from "../../components/scroll-to-top/ScrollToTop";
