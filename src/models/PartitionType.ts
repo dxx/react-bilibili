@@ -2,14 +2,7 @@
  * 分类
  */
 class PartitionType {
-  public id: number;
-  public name: string;
-  public children: PartitionType[];
-  constructor(id: number, name: string, children: PartitionType[] = []) {
-    this.id = id;
-    this.name = name;
-    this.children = children;
-  }
+  constructor(public id: number, public name: string, public children: PartitionType[] = []) {}
 }
 
 function createPartitionTypes(data): PartitionType[] {

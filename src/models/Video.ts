@@ -5,45 +5,20 @@ import { PartitionType } from "./PartitionType";
  * 视频
  */
 class Video {
-  public aId: number;
-  public title: string;
-  public pic: string;
-  public desc: string;
-  public playCount: number;
-  public barrageCount: number;
-  public publicDate: number;
-  public duration: any;
-  public cId: number;
-  public url: string;
-  public owner: UpUser;
-  public twoLevel: PartitionType;
-  public oneLevel: PartitionType;
   constructor(
-    aId,
-    title,
-    pic,
-    desc,
-    playCount,
-    barrageCount,
-    publicDate,
-    duration,
-    cId,
-    url,
-    owner = null , twoLevel = null, oneLevel = null) {
-    this.aId = aId;
-    this.title = title;
-    this.pic = pic;
-    this.desc = desc;
-    this.playCount = playCount;
-    this.barrageCount = barrageCount;
-    this.publicDate = publicDate;
-    this.duration = duration;
-    this.cId = cId;
-    this.url = url;
-    this.owner = owner;
-    this.twoLevel = twoLevel;
-    this.oneLevel = oneLevel;
-  }
+    public aId: number,
+    public title: string,
+    public pic: string,
+    public desc: string,
+    public playCount: number,
+    public barrageCount: number,
+    public publicDate: number,
+    public duration: any,
+    public cId: number,
+    public url: string,
+    public owner: UpUser = null ,
+    public twoLevel: PartitionType = null,
+    public oneLevel: PartitionType = null) {}
 }
 
 function createVideo(data): Video {
