@@ -40,6 +40,9 @@ const webpackConfig = merge(baseWebpackConfig, {
             options: {
               transpileOnly: true  // 只进行编译
             }
+          },
+          {
+            loader: "eslint-loader"
           }
         ],
         exclude: /node_modules/

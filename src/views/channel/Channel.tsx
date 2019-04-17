@@ -302,7 +302,7 @@ class Channel extends React.Component<ChannelProps, ChannelState> {
             </div>
           </div>
           {
-            isOneLevelAndChildrenGtTwo === true ?　(
+            isOneLevelAndChildrenGtTwo === true ? (
               this.state.partitions.map((partition) =>
                 <Partition data={partition} key={partition.id}
                   getPicUrl={(url, format) => this.getPicUrl(url, format)} />
@@ -314,7 +314,7 @@ class Channel extends React.Component<ChannelProps, ChannelState> {
         </div>
       </div>
     );
-  };
+  }
 }
 
 Channel.contextType = Context;

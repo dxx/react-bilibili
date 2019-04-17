@@ -1,0 +1,8 @@
+/node_modules
+/dist
+/config
+/public
+/plugin
+/server
+
+*.css
