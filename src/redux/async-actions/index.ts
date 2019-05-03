@@ -1,3 +1,4 @@
+import { AnyAction, Dispatch } from "redux";
 import { getContent, getBanner } from "../../api/index";
 import { createPartitionTypes, createVideo, createVideoByRanking } from "../../models";
 import {
@@ -10,7 +11,7 @@ import { getRankings } from "../../api/ranking";
 
 export default function getIndexContent() {
   // dispatch由thunkMiddleware传入
-  return (dispatch, getState) => {
+  return (dispatch: Dispatch<AnyAction>, getState) => {
     const promises = [
       getContent(),
       getBanner(),

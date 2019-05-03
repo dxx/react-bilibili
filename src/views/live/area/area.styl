@@ -1,0 +1,26 @@
+@import "../../../assets/stylus/px2rem.styl"
+
+body
+  background-color: #f2f2f2
+.main
+  margin-top: px2rem(80)
+  padding: px2rem(10) px2rem(6)
+  .title
+    margin: px2rem(6) 0 px2rem(33) px2rem(8)
+    font-size: px2rem(14)
+    font-weight: normal
+  .classes
+    font-size: 0
+    .class-wrapper
+      display: inline-block
+      width: 33%
+      margin-bottom: px2rem(50)
+      text-align: center
+      img
+        width: px2rem(60)
+        height: @width
+      span
+        display: block
+        margin-top: px2rem(10)
+        font-size: px2rem(12)
+        color: gray

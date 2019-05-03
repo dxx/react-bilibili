@@ -19,7 +19,7 @@ interface RankingProps {
   rankingPartitions: PartitionType[];
   rankingVideos: Video[];
   match: match<{rId}>;
-  dispatch: any;
+  dispatch: (action: any) => Promise<void>;
   staticContext?: { picSuffix: string };
 }
 
@@ -90,7 +90,7 @@ class Ranking extends React.Component<RankingProps, RankingState> {
     this.setState({
       currentTabIndex,
       loading: true
-    })
+    });
     this.props.dispatch(getVideoList(tab.id)).then(() => {
       this.setState({
         loading: false
@@ -111,9 +111,9 @@ class Ranking extends React.Component<RankingProps, RankingState> {
         }
         <div className={style.topWrapper}>
           <div className={style.header}>
-            <a href={"/channel/" + m.params.rId}>
+            <span onClick={() => { window.history.back(); }}>
               <img src={back} />
-            </a>
+            </span>
             <span>排行榜</span>
           </div>
           <TabBar data={rankingPartitions} type={"indicate"} currentIndex={this.state.currentTabIndex}

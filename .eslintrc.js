@@ -10,7 +10,10 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  plugins: ["@typescript-eslint"],
+  plugins: [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
   parserOptions: {
     sourceType: "module",
     ecmaFeatures: {
@@ -24,7 +27,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: "16.6.3"
+      version: "16.8.6"
     }
   }
 }

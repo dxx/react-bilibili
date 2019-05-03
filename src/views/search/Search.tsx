@@ -145,7 +145,7 @@ class Search extends React.Component<any, SearchState> {
               ) : null
             }
           </div>
-          <span className={style.cancel} onClick={() => { window.history.back() }}>取消</span>
+          <span className={style.cancel} onClick={() => { window.history.back(); }}>取消</span>
         </div>
         {
           !this.state.keyword ? (

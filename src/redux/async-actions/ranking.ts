@@ -1,10 +1,11 @@
+import { AnyAction, Dispatch } from "redux";
 import { setShouldLoad, setRankingPartitions, setRankingVideos } from "../actions";
 import { getRankingPartitions } from "../../api/partitions";
 import { getRankings } from "../../api/ranking";
 import { createPartitionTypes, createVideoByRanking } from "../../models";
 
 export function getRankingVideoList(rId: number) {
-  return (dispatch) => {
+  return (dispatch: Dispatch<AnyAction>) => {
     return Promise.all([
       getRankingPartitions(),
       getRankings(rId)

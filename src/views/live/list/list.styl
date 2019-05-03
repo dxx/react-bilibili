@@ -1,0 +1,37 @@
+@import "../../../assets/stylus/px2rem.styl"
+
+.main
+  margin-top: px2rem(80)
+  .room-container
+    padding: 0 px2rem(12)
+    background-color: #ffffff
+    .title
+      height: px2rem(18)
+      line-height: @height
+      padding: px2rem(12) 0
+      margin: 0
+      font-size: px2rem(15)
+      font-weight: normal
+      color: #181818
+    .rooms
+      padding: 0 px2rem(5)
+      .room-wrapper
+        display: inline-block
+        width: 50%
+        margin-bottom: px2rem(10)
+        position: relative
+        &:nth-child(2n)
+          left: px2rem(5)
+        &:nth-child(2n+1)
+          left: px2rem(-5)
+  .load-more
+    margin-top: px2rem(-12)
+    padding: px2rem(15) px2rem(10)
+    .load-btn
+      height: px2rem(40)
+      line-height: @height
+      text-align: center
+      font-size: px2rem(14)
+      border-radius: px2rem(4)
+      border: 1px solid #d3d3d3
+      color: #fb7299

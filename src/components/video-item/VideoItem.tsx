@@ -17,34 +17,36 @@ const VideoItem = (props: VideoItemProps) => {
     <div className={style.video}>
       <a className={style.videoLink} href={"/video/av" + video.aId}>
         <div className={style.imageContainer}>
-          <img src={tv} className={style.tv} />
-          {
-            video.pic ? (
-              <LazyLoad height={"5.3rem"} offset={100}>
-                <img src={video.pic} className={style.pic}
-                alt={video.title} />
-              </LazyLoad>
-            ) : null
-          }
-          <div className={style.cover} />
-          {
-            showStatistics === true ? (
-              <div className={style.info}>
-                <span className={`${style.playIcon} icon-play-count`} />
-                <span className={style.playCount}>
-                  {
-                    video.playCount ? formatTenThousand(video.playCount) : "--"
-                  }
-                </span>
-                <span className={`${style.barrageIcon} icon-barrage-count`} />
-                <span className={style.barrageCount}>
-                  {
-                    video.barrageCount ? formatTenThousand(video.barrageCount) : "--"
-                  }
-                </span>
-              </div>
-            ) : null
-          }
+          <div className={style.imageWrapper}>
+            <img className={style.tv} src={tv} />
+            {
+              video.pic ? (
+                <LazyLoad height={"100%"} offset={100}>
+                  <img src={video.pic} className={style.pic} alt={video.title} 
+                    onLoad={(e) => {(e.currentTarget as HTMLImageElement).style.opacity = "1"}} />
+                </LazyLoad>
+              ) : null
+            }
+            <div className={style.cover} />
+            {
+              showStatistics === true ? (
+                <div className={style.info}>
+                  <span className={`${style.playIcon} icon-play-count`} />
+                  <span className={style.playCount}>
+                    {
+                      video.playCount ? formatTenThousand(video.playCount) : "--"
+                    }
+                  </span>
+                  <span className={`${style.barrageIcon} icon-barrage-count`} />
+                  <span className={style.barrageCount}>
+                    {
+                      video.barrageCount ? formatTenThousand(video.barrageCount) : "--"
+                    }
+                  </span>
+                </div>
+              ) : null
+            }
+          </div>
         </div>
         <div className={style.title}>
           {video.title}

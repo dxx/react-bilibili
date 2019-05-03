@@ -1,0 +1,36 @@
+@import "../../assets/stylus/px2rem.styl"
+
+.nav-fixed
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 100
+  background-color: #ffffff
+  .nav
+    height: px2rem(40)
+    line-height: @height
+    border-bottom: 1px solid #e7e7e7
+    box-sizing: border-box
+    i
+      display: inline-block
+      width: px2rem(62)
+      height: 100%
+      margin-left: px2rem(18)
+      background-image: url("../../assets/images/logo.png")
+      background-size: 100% auto
+      background-position: 0 px2rem(5)
+      background-repeat: no-repeat
+  .tab
+    display: flex
+    justify-content: space-between
+    padding: 0 px2rem(8)
+    .tab-item
+      width: px2rem(60)
+      height: px2rem(40)
+      line-height: @height
+      box-sizing: border-box
+      text-align: center
+      font-size: px2rem(16)
+      &:nth-child(3)
+        border-bottom: px2rem(4) solid #fb7299

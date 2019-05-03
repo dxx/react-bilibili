@@ -1,0 +1,76 @@
+@import "../../../assets/stylus/px2rem.styl"
+
+html, body, :global(#app), :global(.view), :global(.live-room)
+  height: 100%
+.header
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 10
+  width: 100%
+  height: px2rem(40)
+  line-height: @height
+  border-bottom: 1px solid #e7e7e7
+  i
+    display: inline-block
+    width: px2rem(62)
+    height: 100%
+    margin-left: px2rem(18)
+    background-image: url("../../../assets/images/logo.png")
+    background-size: 100% auto
+    background-position: 0 px2rem(5)
+    background-repeat: no-repeat
+  .crumb
+    float: right
+    margin-right: px2rem(12)
+    color: #fb7299
+    font-size: px2rem(14)
+.main
+  width: 100%
+  height: 100%
+  padding-top: px2rem(40)
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  .live-container
+    position: relative
+    height: px2rem(211)
+  .up-container
+    height: px2rem(63)
+    padding: px2rem(14)
+    box-sizing: border-box
+    border-bottom: 1px solid #eee
+    position: relative
+    .face
+      position: absolute
+      top: px2rem(7.5)
+      left: px2rem(12)
+      width: px2rem(45)
+      height : @width
+      border-radius: 50%
+      background-color: #dddddd
+      overflow: hidden
+      img
+        width: 100%
+        height: 100%
+    .info-wrapper
+      margin-left: px2rem(50)
+      .anchor, .count
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+      .anchor
+        margin: 0
+        line-height: px2rem(15)
+        font-weight: 400
+        font-size: px2rem(14)
+        color: #212121
+      .count
+        margin-top: px2rem(4)
+        line-height: px2rem(14)
+        font-size: px2rem(12)
+        color: #999999
+        .fans
+          margin-left: px2rem(12)
+  .tab-container
+    flex: 1

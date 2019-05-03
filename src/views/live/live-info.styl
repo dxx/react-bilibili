@@ -1,0 +1,65 @@
+@import "../../assets/stylus/px2rem.styl"
+
+.live-info
+  width: 100%
+  .cover-wrapper
+    position: relative
+    width: 100%
+    padding-bottom: 62%
+    color: #ffffff
+    background-image: url("../../assets/images/tv.png")
+    background-repeat: no-repeat
+    background-size: px2rem(200) px2rem(200)
+    background-position: center
+    .cover
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      border-radius: px2rem(8)
+      overflow: hidden
+      opacity: 0
+      transition: opacity .3s ease
+      transform: translate3d(0, 0, 0)
+      &:after
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background-color: rgba(0, 0, 0, .2)
+      img
+        width: 100%
+        height: 100%
+    .name
+      position: absolute
+      left: 0
+      bottom: 0
+      width: px2rem(100)
+      height: px2rem(12)
+      line-height: @height
+      margin: 0 0 px2rem(7)  px2rem(5)
+      font-size: px2rem(10)
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+    .online
+      position: absolute
+      right: 0
+      bottom: 0
+      margin: 0 px2rem(9) px2rem(5) 0
+      padding-left: px2rem(15)
+      font-size: px2rem(10)
+      background-image: url("../../assets/images/eye.png")
+      background-repeat: no-repeat
+      background-size: px2rem(10) px2rem(9)
+      background-position: 0 px2rem(2)
+  .title
+    margin: px2rem(5) px2rem(7)
+    line-height: px2rem(16)
+    font-size: px2rem(14)
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis

@@ -29,9 +29,10 @@ class Index extends React.Component<IndexProps> {
   public componentDidMount() {
     // 服务端引入会抛异常
     const Swiper = require("swiper");
-    const swiper = new Swiper(".swiper-container", {
+    new Swiper(".swiper-container", {
       loop: true,
       autoplay: 3000,
+      autoplayDisableOnInteraction: false,
       pagination: ".swiper-pagination"
     });
     setTimeout(() => {
@@ -44,6 +45,11 @@ class Index extends React.Component<IndexProps> {
    * tabBar或drawer组件点击事件处理
    */
   private handleClick = (tab) => {
+    // 直播
+    if (tab.id === -1) {
+      window.location.href = "/live";
+      return;
+    }
     if (tab.id === 0) {
       window.location.href = "/index";
     } else {
@@ -70,6 +76,8 @@ class Index extends React.Component<IndexProps> {
 
     const tabBarData = [{ id: 0, name: "首页"} as PartitionType]
       .concat(oneLevelPartitions);
+
+    tabBarData.push(new PartitionType(-1, "直播"));
 
     let videos = rankingVideos;
     if (additionalVideos.length > 0) {

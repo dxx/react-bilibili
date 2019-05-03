@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { AnyAction, combineReducers } from "redux";
 import * as ActionTypes from "./action-types";
 
 const initialState = {
@@ -10,10 +10,19 @@ const initialState = {
   rankingPartitions: [], // 排行榜分类列表
   rankingVideos: [], // 排行榜视频
   video: {}, // 视频信息
-  upUser: {} // up主信息
+  upUser: {}, // up主信息,
+  liveData: { // 直播数据
+    bannerList: [],
+    itemList: []
+  },
+  liveListData: {  // 直播房间列表
+    total: 0,
+    list: []
+  },
+  roomData: {}  // 直播间数据
 }
 
-function combineShouldLoad(shouldLoad = initialState.shouldLoad, action) {
+function combineShouldLoad(shouldLoad = initialState.shouldLoad, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_SHOULD_LOAD:
       return action.shouldLoad;
@@ -22,7 +31,8 @@ function combineShouldLoad(shouldLoad = initialState.shouldLoad, action) {
   }
 }
 
-function combineOneLevelPartitions(oneLevelPartitions = initialState.oneLevelPartitions, action) {
+function combineOneLevelPartitions(oneLevelPartitions = initialState.oneLevelPartitions,
+  action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_ONE_LEVEL_PARTITIONS:
       return action.oneLevelPartitions;
@@ -31,7 +41,7 @@ function combineOneLevelPartitions(oneLevelPartitions = initialState.oneLevelPar
   }
 }
 
-function combineBanners(banners = initialState.banners, action) {
+function combineBanners(banners = initialState.banners, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_BANNERS:
       return action.banners;
@@ -40,7 +50,8 @@ function combineBanners(banners = initialState.banners, action) {
   }
 }
 
-function combineAdditionalVideos(additionalVideos = initialState.additionalVideos, action) {
+function combineAdditionalVideos(additionalVideos = initialState.additionalVideos,
+  action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_ADDITIONAL_VIDEOS:
       return action.additionalVideos;
@@ -49,7 +60,7 @@ function combineAdditionalVideos(additionalVideos = initialState.additionalVideo
   }
 }
 
-function combinePartitions(partitions = initialState.partitions, action) {
+function combinePartitions(partitions = initialState.partitions, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_PARTITIONS:
       return action.partitions;
@@ -58,7 +69,8 @@ function combinePartitions(partitions = initialState.partitions, action) {
   }
 }
 
-function combineRankingPartitions(rankingPartitions = initialState.rankingPartitions, action) {
+function combineRankingPartitions(rankingPartitions = initialState.rankingPartitions,
+  action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_RANKING_PARTITIONS:
       return action.rankingPartitions;
@@ -67,7 +79,7 @@ function combineRankingPartitions(rankingPartitions = initialState.rankingPartit
   }
 }
 
-function combineRankingVideos(rankingVideos = initialState.rankingVideos, action) {
+function combineRankingVideos(rankingVideos = initialState.rankingVideos, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_RANKING_VIDEOS:
       return action.rankingVideos;
@@ -76,7 +88,7 @@ function combineRankingVideos(rankingVideos = initialState.rankingVideos, action
   }
 }
 
-function combineVideo(video = initialState.video, action) {
+function combineVideo(video = initialState.video, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_VIDEO_INFO:
       return action.video;
@@ -85,12 +97,39 @@ function combineVideo(video = initialState.video, action) {
   }
 }
 
-function combineUpUser(upUser = initialState.upUser, action) {
+function combineUpUser(upUser = initialState.upUser, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.SET_UP_USER:
       return action.upUser;
     default:
       return upUser;
+  }
+}
+
+function combineLiveData(liveData = initialState.liveData, action: AnyAction) {
+  switch (action.type) {
+    case ActionTypes.SET_LIVE_DATA:
+      return action.liveData;
+    default:
+      return liveData;
+  }
+}
+
+function combineLiveListData(liveListData = initialState.liveListData, action: AnyAction) {
+  switch (action.type) {
+    case ActionTypes.SET_LIVE_LIST:
+      return action.liveListData;
+    default:
+      return liveListData;
+  }
+}
+
+function combineRoomData(roomData = initialState.roomData, action: AnyAction) {
+  switch (action.type) {
+    case ActionTypes.SET_ROOM_DATA:
+      return action.roomData;
+    default:
+      return roomData;
   }
 }
 
@@ -103,7 +142,10 @@ const reducer = combineReducers({
   rankingPartitions: combineRankingPartitions,
   rankingVideos: combineRankingVideos,
   video: combineVideo,
-  upUser: combineUpUser
+  upUser: combineUpUser,
+  liveData: combineLiveData,
+  liveListData: combineLiveListData,
+  roomData: combineRoomData
 });
 
 export default reducer;

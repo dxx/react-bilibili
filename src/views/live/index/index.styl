@@ -1,0 +1,78 @@
+@import "../../../assets/stylus/px2rem.styl"
+
+.main
+  margin-top: px2rem(80)
+  background-color: #f4f4f4
+  .banner
+    height: px2rem(117)
+    & > div
+      height: 100%
+  .room-container
+    padding: 0 px2rem(12)
+    margin-bottom: px2rem(12)
+    background-color: #ffffff
+    &:nth-last-child(2)
+      margin-bottom: 0
+    .title
+      height: px2rem(18)
+      line-height: @height
+      padding: px2rem(12) 0
+      margin: 0
+      font-size: px2rem(15)
+      font-weight: normal
+      color: #181818
+      .more
+        float: right
+        padding-right: px2rem(25)
+        font-size: px2rem(13)
+        color: #919799
+        background-image: url("../../../assets/images/right-arrow-button.png")
+        background-repeat: no-repeat
+        background-position: right center
+        background-size: contain
+    .rooms
+      padding: 0 px2rem(5)
+      .room-wrapper
+        display: inline-block
+        width: 50%
+        margin-bottom: px2rem(10)
+        position: relative
+        &:nth-child(2n)
+          left: px2rem(5)
+        &:nth-child(2n+1)
+          left: px2rem(-5)
+  .bottom
+    padding: px2rem(7) 0 px2rem(30) 0
+    background-color: #ffffff
+    & > div
+      display: inline-block
+      width: 50%
+      & > a
+        display: block
+        margin: 0 5%
+        height: px2rem(40)
+        line-height: @height
+        text-align: center
+        font-size: px2rem(14)
+        border-radius: px2rem(4)
+        border: 1px solid #d3d3d3
+        color: #fb7299
+        &:active
+          background-color: #e6e6e6
+
+:global(.swiper-pagination)
+  width: auto !important
+  left: auto !important
+  right: px2rem(5) !important
+  bottom: px2rem(8) !important
+:global(.swiper-pagination-bullet)
+  float: left
+  width: px2rem(6)
+  height: @width
+  margin: px2rem(2) !important
+  border-radius: px2rem(3)
+  background-color: #ffffff
+  opacity: 1
+:global(.swiper-pagination-bullet-active)
+  background-color: #fb7299
+  

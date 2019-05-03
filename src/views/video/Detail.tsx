@@ -211,7 +211,14 @@ class Detail extends React.Component<DetailProps, DetailState> {
         {/* 内容 */}
         <div className={style.contentWrapper}>
           <div className={style.videoContainer}>
-            <VideoPlayer video={video} />
+            <VideoPlayer video={{
+                aId: video.aId,
+                cId: video.cId,
+                title: video.title,
+                cover: video.pic,
+                duration: video.duration,
+                url: video.url
+              }} />
           </div>
           {/* 视频信息 */}
           <div className={style.videoInfoContainer} ref={this.infoContainerRef}>

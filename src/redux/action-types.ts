@@ -23,3 +23,13 @@ export const SET_VIDEO_INFO = "SET_VIDEO_INFO";
 
 // 设置up主信息
 export const SET_UP_USER = "SET_UP_USER";
+
+
+// 设置直播数据
+export const SET_LIVE_DATA = "SET_LIVE_DATA";
+
+// 设置直播房间列表
+export const SET_LIVE_LIST = "SET_LIVE_LIST";
+
+// 设置直播间数据
+export const SET_ROOM_DATA = "SET_ROOM_DATA";

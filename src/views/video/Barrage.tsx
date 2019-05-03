@@ -18,6 +18,8 @@ interface BarrageData {
 }
 
 interface BarrageProps {
+  fontSize?: string;
+  opacity?: number;
   barrages?: BarrageData[];
 }
 
@@ -31,17 +33,22 @@ class Barrage extends React.PureComponent<BarrageProps> {
   private contentHeight: number;
   private randomTop: number = 0;
   private fixedTop: number = 0;
+  private fontSize: string;
+  private opacity: number;
   constructor(props) {
     super(props);
 
     this.barrageRef = React.createRef();
+    
+    this.fontSize = props.fontSize || "0.8rem";
+    this.opacity = props.opacity || 1;
   }
   private init() {
     this.refresh();
 
     const div = document.createElement("div");
     div.innerHTML = "div";
-    div.style.fontSize = "0.8rem";
+    div.style.fontSize = this.fontSize;
     const body = document.getElementsByTagName("body")[0];
     body.appendChild(div);
     // 弹幕内容高度
@@ -127,8 +134,8 @@ class Barrage extends React.PureComponent<BarrageProps> {
       fontWeight: "bold",
       whiteSpace: "pre",
       textShadow: "rgb(0, 0, 0) 1px 1px 2px",
-      opacity: 0.75,
-      color: barrage.color
+      color: barrage.color,
+      opacity: this.opacity
     };
     // 随机滚动
     if (barrage.type !== BarrageType.FIXED) {

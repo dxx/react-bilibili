@@ -148,6 +148,11 @@ class Channel extends React.Component<ChannelProps, ChannelState> {
    * tabBar或drawer组件点击事件处理
    */
   private handleClick = (tab) => {
+    // 直播
+    if (tab.id === -1) {
+      window.location.href = "/live";
+      return;
+    }
     if (tab.id === 0) {
       window.location.href = "/index";
     } else {
@@ -206,6 +211,8 @@ class Channel extends React.Component<ChannelProps, ChannelState> {
     // 一级分类
     const tabBarData = [{ id: 0, name: "首页", children: []} as PartitionType]
       .concat(partitions);
+
+    tabBarData.push(new PartitionType(-1, "直播"));
 
     let currentTabIndex = tabBarData.findIndex((parittion) =>
       parittion.id === parseInt(m.params.rId, 10)

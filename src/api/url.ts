@@ -23,6 +23,14 @@ const URL_SEARCH_HOTWORD = prefix + "/search/hotword";
 const URL_SEARCH_SUGGEST = prefix + "/search/suggest";
 const URL_SEARCH = prefix + "/search";
 
+const URL_LIVE_AREA = prefix + "/live/area";
+const URL_LIVE_DATA = prefix + "/live/data";
+const URL_LIVE_LIST = prefix + "/live/room/list";
+const URL_LIVE_ROOM_INFO = prefix + "/live/room/info";
+const URL_LIVE_ROOM_GIFT = prefix + "/live/room/gifts";
+const URL_LIVE_PLAY_URL = prefix + "/live/room/play_url";
+const URL_LIVE_DANMU_CONFIG = prefix + "/live/room/danmu_config";
+
 export {
   URL_INDEX,
   URL_ROUND_SOWING,
@@ -39,5 +47,12 @@ export {
   URL_USER_VIDEO,
   URL_SEARCH_HOTWORD,
   URL_SEARCH_SUGGEST,
-  URL_SEARCH
+  URL_SEARCH,
+  URL_LIVE_AREA,
+  URL_LIVE_DATA,
+  URL_LIVE_LIST,
+  URL_LIVE_ROOM_INFO,
+  URL_LIVE_ROOM_GIFT,
+  URL_LIVE_PLAY_URL,
+  URL_LIVE_DANMU_CONFIG
 }

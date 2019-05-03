@@ -1,0 +1,75 @@
+@import "../../../assets/stylus/px2rem.styl"
+
+.tab-wrapper
+  width: 100%
+  height: 100%
+  position: relative
+  .tab-item-wrapper
+    display: flex
+    .tab-item
+      flex: 1
+      height: px2rem(30)
+      line-height: px2rem(30)
+      text-align: center
+      font-size: px2rem(13)
+      color:#666666
+      position: relative
+      &:active
+        color: #ffffff !important
+        background-color: #fb7299
+      &.active
+        color: #fb7299
+        &:after
+          content: ""
+          position: absolute
+          left: 50%
+          bottom: 0
+          width: px2rem(50)
+          height: px2rem(2)
+          margin-left: px2rem(-25)
+          background-color: #fb7299
+  .tab-content-wrapper
+    position: absolute
+    top: px2rem(30)
+    left: 0
+    bottom: 0
+    right: 0
+    background-color: #f2f2f2
+    .tab-content
+      height: 100%
+      font-size: px2rem(13)
+      overflow: auto
+      .chat-container
+        width: 100%
+        height: 100%
+        overflow-x: hidden
+        overflow-y: scroll
+        -webkit-overflow-scrolling: touch
+        .chat-msg
+          line-height: px2rem(20)
+          margin: px2rem(5) px2rem(10)
+          font-size: px2rem(12)
+          word-break: break-all
+          word-wrap: break-word
+          .msg-manager
+            height: px2rem(18)
+            line-height: px2rem(18)
+            margin-top: px2rem(2)
+            margin-right: px2rem(4)
+            padding: 0 px2rem(4)
+            border-radius: px2rem(2)
+            color: #ffffff
+            background-color: #fca851
+          &.gift
+            .msg-name
+              color: #fb7299
+          &.svip
+            .msg-name
+              color: #eab400
+          &.vip
+            .msg-name
+              color: #e73b3b
+          .msg-name
+            color: #a1a1a1
+      .desc
+        padding: px2rem(10)
