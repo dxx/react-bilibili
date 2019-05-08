@@ -1,22 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "src",
-    "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
-    "sourceMap": true,
     "allowJs": true,
-    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
     "downlevelIteration": true,
-    "moduleResolution": "node"
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
   },
-  "exclude": [
-    "node_modules",
-    "config",
-    "dist",
-    "plugin",
-    "public",
-    "server"
+  "include": [
+    "src"
   ]
 }
