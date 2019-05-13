@@ -96,7 +96,7 @@ function Tab(props: TabProps) {
       }
     });
 
-  });
+  }, []);
 
   return (
     <div className={style.tabWrapper}>
