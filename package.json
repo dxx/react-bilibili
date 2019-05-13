@@ -43,7 +43,7 @@
     "@types/webpack-env": "^1.13.6",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
-    "autoprefixer": "^9.3.1",
+    "autoprefixer": "^9.4.5",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "cross-env": "^5.2.0",
