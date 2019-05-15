@@ -53,20 +53,24 @@ function Index(props: IndexProps) {
         { context => (
           <section className={style.main}>
             <div className={style.banner}>
-              <div className="swiper-container">
-                <div className="swiper-wrapper">
-                  {
-                    bannerList.map((banner) => (
-                      <div className="swiper-slide" key={banner.id}>
-                        <a href={banner.link}>
-                          <img src={`${context.picURL}?pic=${banner.pic}`} width="100%" height="100%" />
-                        </a>
-                      </div>
-                    ))
-                  }
-                </div>
-                <div className="swiper-pagination clear" />
-              </div>
+              {
+                bannerList.length > 0 ? (
+                  <div className="swiper-container">
+                    <div className="swiper-wrapper">
+                      {
+                        bannerList.map((banner) => (
+                          <div className="swiper-slide" key={banner.id}>
+                            <a href={banner.link}>
+                              <img src={`${context.picURL}?pic=${banner.pic}`} width="100%" height="100%" />
+                            </a>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <div className="swiper-pagination clear" />
+                  </div>
+                ) : null
+              }
             </div>
             {/* 分区直播列表 */}
             {
