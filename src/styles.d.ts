@@ -1,5 +1,28 @@
-declare module "*.css?css-modules"
-declare module "*.less?css-modules"
-declare module "*.sass?css-modules"
-declare module "*.scss?css-modules"
-declare module "*.styl?css-modules"
+interface StyleModule {
+  [key: string]: string;
+}
+
+declare module "*.css?css-modules" {
+  const style: StyleModule;
+  export default style;
+}
+
+declare module "*.less?css-modules" {
+  const style: StyleModule;
+  export default style;
+}
+
+declare module "*.sass?css-modules" {
+  const style: StyleModule;
+  export default style;
+}
+
+declare module "*.scss?css-modules" {
+  const style: StyleModule;
+  export default style;
+}
+
+declare module "*.styl?css-modules" {
+  const style: StyleModule;
+  export default style;
+}
