@@ -1,4 +1,5 @@
 const autoprefixer = require("autoprefixer");
+const postcssFlexbugsFixes = require("postcss-flexbugs-fixes");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const cssLoaders = function(options) {
@@ -22,16 +23,10 @@ const cssLoaders = function(options) {
       sourceMap: options.sourceMap,
       ident: "postcss",
       plugins: () => [
-        require("postcss-flexbugs-fixes"),
         autoprefixer({
-          browsers: [
-            ">1%",
-            "last 4 versions",
-            "Firefox ESR",
-            "not ie < 9", // Doesn"t support IE8 anyway
-          ],
-          flexbox: "no-2009",
-        })
+          flexbox: "no-2009"
+        }),
+        postcssFlexbugsFixes
       ]
     }
   }
