@@ -49,6 +49,20 @@
   1.直播播放<br/>
   2.聊天弹幕
 
+## 运行
+
+### `npm install`
+安装项目依赖包
+
+### `npm run dev`
+运行开发环境，注意将`config/dev.env.js`中的接口地址改成线上的地址，对应`prod.env.js`，端口只能使用`3010`
+
+### `npm run build`
+打包客户端和服务端，运行生产环境前必须先打包
+
+### `npm run start`
+运行生产环境
+
 ## 屏幕截图
 <p align="center">
   <img src="https://code-mcx.github.io/react-bilibili/screenshots/01_index.png" width="326px" height="680px" alt="index" />
