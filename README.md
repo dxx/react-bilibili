@@ -15,20 +15,6 @@
 ##
 本项目基于此[SSR服务端渲染](https://github.com/code-mcx/react-ssr)模板，使用React16.8，Typescript开发
 
-## 预览地址
-
-### 视频弹幕
-
-[http://barrage.codemcx.work](http://barrage.codemcx.work)
-
-<img src="http://barrage.codemcx.work/public/qrcode.png" alt="高仿B站web移动端"/>
-
-### 直播
-
-[http://barrage.codemcx.work/live](http://barrage.codemcx.work/live)
-
-<img src="http://barrage.codemcx.work/public/qrcode_live.png" alt="高仿B站web移动端直播"/>
-
 ## 技术点
 * react
 * react-router-dom
@@ -62,3 +48,24 @@
 * 直播间<br/>
   1.直播播放<br/>
   2.聊天弹幕
+
+## 屏幕截图
+<p align="center">
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/01_index.png" width="326px" height="610px" alt="index" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/02_channel.png" width="326px" height="610px" alt="channel" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/03_ranking.png" width="326px" height="610px" alt="ranking" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/04_detail.png" width="326px" height="610px" alt="detail" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/05_detail.png" width="326px" height="610px" alt="detail" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/06_space.png" width="326px" height="610px" alt="space" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/07_search.png" width="326px" height="610px" alt="search" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/08_history.png" width="326px" height="610px" alt="history" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/09_live.png" width="326px" height="610px" alt="live" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/10_live_list.png" width="326px" height="610px" alt="live list" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/11_room.png" width="326px" height="610px" alt="room" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/12_room.png" width="326px" height="610px" alt="room" />
+</p>
