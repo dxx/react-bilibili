@@ -15,11 +15,6 @@
 ##
 本项目基于此[SSR服务端渲染](https://github.com/code-mcx/react-ssr)模板，使用React16.6，Typescript开发
 
-## 预览地址
-[http://barrage.codemcx.work](http://barrage.codemcx.work)
-
-<img src="http://barrage.codemcx.work/public/qrcode.png" alt="高仿B站web移动端"/>
-
 ## 技术点
 * react
 * react-router-dom
@@ -47,3 +42,32 @@
   2.投稿列表
 * 个人中心<br/>
   历史记录
+
+## 运行
+
+### `npm install`
+安装项目依赖包
+
+### `npm run dev`
+运行开发环境，注意将`config/dev.env.js`中的接口地址改成线上的地址，对应`prod.env.js`，端口只能使用`3010`
+
+### `npm run build`
+打包客户端和服务端，运行生产环境前必须先打包
+
+### `npm run start`
+运行生产环境
+
+## 屏幕截图
+<p align="center">
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/01_index.png" width="326px" height="680px" alt="index" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/02_channel.png" width="326px" height="680px" alt="channel" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/03_ranking.png" width="326px" height="680px" alt="ranking" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/04_detail.png" width="326px" height="680px" alt="detail" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/05_detail.png" width="326px" height="680px" alt="detail" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/06_space.png" width="326px" height="680px" alt="space" />
+
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/07_search.png" width="326px" height="680px" alt="search" />
+  <img src="https://code-mcx.github.io/react-bilibili/screenshots/08_history.png" width="326px" height="680px" alt="history" />
+</p>
