@@ -122,7 +122,9 @@ class Result extends React.Component<ResultProps, ResultState> {
       this.searchType = searchType;
       this.page.pageNumber = 1;
       this.setState({
-        loading: true
+        loading: true,
+        videos: [],
+        upUsers: []
       });
       this.getResult();
     }
