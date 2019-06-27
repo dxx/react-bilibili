@@ -10,7 +10,7 @@ class ServerRenderer {
     this.manifest = manifest;
     this.serverEntry = this._createEntry(bundle);
   }
-  renderToString(request) {
+  renderToString(request, staticContext) {
     return new Promise((resolve, reject) => {
       const serverEntry = this.serverEntry;
 
@@ -24,16 +24,8 @@ class ServerRenderer {
         // 存放组件内部路由相关属性，包括状态码，地址信息，重定向的url
         let context = {};
 
-        // 图片后缀
-        const userAgent = request.get("User-Agent");
-        if (userAgent) {
-          if (/(iPhone|iPad|iPod|iOS)/i.test(userAgent)) { // 判断iPhone|iPad|iPod|iOS
-            context.picSuffix = ".jpg";
-          } else if (/(Android)/i.test(userAgent)) {  // 判断Android
-            context.picSuffix = ".webp";
-          } else {
-            context.picSuffix = ".jpg";
-          }
+        if (staticContext && staticContext.constructor === Object) {
+          Object.assign(context, staticContext);
         }
 
         let component = createApp(context, request.url, store);
