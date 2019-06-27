@@ -77,8 +77,8 @@ class VideoLatest extends React.Component<VideoLatestProps, VideoLatestState> {
           <div className={style.videoList + " clear"}>
             {
               this.state.latestVideos.map((item, i) => {
-                if (item.pic && item.pic.indexOf("@320w_@200h") === -1) {
-                  item.pic = this.props.getPicUrl(item.pic, "@320w_@200h");
+                if (item.pic && item.pic.indexOf("@320w_200h") === -1) {
+                  item.pic = this.props.getPicUrl(item.pic, "@320w_200h");
                 }
                 return <VideoItem video={item} key={i} showStatistics={true} />
               })
