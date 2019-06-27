@@ -107,14 +107,14 @@ class Index extends React.Component<IndexProps> {
       </div>
     ));
     const additionalVideoElements = this.props.additionalVideos.map((video) => {
-      if (video.pic.indexOf("@320w_@200h") === -1) {
-        video.pic = this.getPicUrl(video.pic, "@320w_@200h");
+      if (video.pic.indexOf("@320w_200h") === -1) {
+        video.pic = this.getPicUrl(video.pic, "@320w_200h");
       }
       return <VideoItem video={video} key={video.aId} showStatistics={false} />
     });
     const videoElements = videos.map((video) => {
-      if (video.pic.indexOf("@320w_@200h") === -1) {
-        video.pic = this.getPicUrl(video.pic, "@320w_@200h");
+      if (video.pic.indexOf("@320w_200h") === -1) {
+        video.pic = this.getPicUrl(video.pic, "@320w_200h");
       }
       return <VideoItem video={video} key={video.aId} showStatistics={true} />
     });

@@ -19,8 +19,8 @@ const Partition = (props) => {
       <div className={style.partitionContent  + " clear"}>
         {
           data.videos.map((item, i) => {
-            if (item.pic && item.pic.indexOf("@320w_@200h") === -1) {
-              item.pic = getPicUrl(item.pic, "@320w_@200h");
+            if (item.pic && item.pic.indexOf("@320w_200h") === -1) {
+              item.pic = getPicUrl(item.pic, "@320w_200h");
             }
             return <VideoItem video={item} key={i} showStatistics={true} />
           })

@@ -300,8 +300,8 @@ class Channel extends React.Component<ChannelProps, ChannelState> {
             <div className={style.recommendContent + " clear"}>
               {
                 this.state.recommendVideos.map((video, i) => {
-                  if (video.pic && video.pic.indexOf("@320w_@200h") === -1) {
-                    video.pic = this.getPicUrl(video.pic, "@320w_@200h");
+                  if (video.pic && video.pic.indexOf("@320w_200h") === -1) {
+                    video.pic = this.getPicUrl(video.pic, "@320w_200h");
                   }
                   return <VideoItem video={video} key={i} showStatistics={true} />
                 })
