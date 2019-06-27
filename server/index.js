@@ -29,7 +29,21 @@ const render = (req, res) => {
   console.log("======enter server======");
   console.log("visit url: " + req.url);
 
-  renderer.renderToString(req).then(({error, html}) => {
+  // 图片后缀
+  let picSuffix = ".jpg";
+  const userAgent = req.get("User-Agent");
+  if (userAgent) {
+    if (/(iPhone|iPad|iPod|iOS)/i.test(userAgent)) { // 判断iPhone|iPad|iPod|iOS
+      picSuffix = ".jpg";
+    } else if (/(Android)/i.test(userAgent)) {  // 判断Android
+      picSuffix = ".webp";
+    }
+  }
+
+  // 此对象会合并然后传给给服务端路由，不需要可不传
+  const context = { picSuffix };
+
+  renderer.renderToString(req, context).then(({error, html}) => {
     if (error) {
       if (error.url) {
         res.redirect(error.url);
