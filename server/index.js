@@ -40,7 +40,7 @@ const render = (req, res) => {
     }
   }
 
-  // 此对象会合并然后传给给服务端路由，不需要可不传
+  // 此对象会合并然后传给服务端路由，不需要可不传
   const context = { picSuffix };
 
   renderer.renderToString(req, context).then(({error, html}) => {
