@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./pako.js"></script>
+  <script>
+    var wsConstant = {
+      WS_OP_HEARTBEAT: 2,  // 心跳
+      WS_OP_HEARTBEAT_REPLY: 3,  // 心跳回应
+      WS_OP_MESSAGE: 5,  // 弹幕，通知等
+      WS_OP_USER_AUTHENTICATION: 7,  // 进房
+      WS_OP_CONNECT_SUCCESS: 8,  // 进房回应
+      WS_PACKAGE_HEADER_TOTAL_LENGTH: 16,
+      WS_PACKAGE_OFFSET: 0,
+      WS_HEADER_OFFSET: 4,
+      WS_VERSION_OFFSET: 6,
+      WS_OPERATION_OFFSET: 8,
+      WS_SEQUENCE_OFFSET: 12,
+      WS_BODY_PROTOCOL_VERSION_NORMAL: 0,  // 协议：内容为JSON
+      WS_BODY_PROTOCOL_VERSION_DEFLATE: 2, // 协议：内容为压缩后的buffer
+      WS_HEADER_DEFAULT_VERSION: 1,
+      WS_HEADER_DEFAULT_OPERATION: 1,
+      WS_HEADER_DEFAULT_SEQUENCE: 1
+    };
+    // 数据包头
+    var wsHeaderList = [
+    {
+      name: "Packet Length",
+      key: "packetLen",
+      bytes: 4,  // 长度
+      offset: wsConstant.WS_PACKAGE_OFFSET,  // 偏移量
+      value: 0
+    },
+    {
+      name: "Header Length",
+      key: "headerLen",
+      bytes: 2,
+      offset: wsConstant.WS_HEADER_OFFSET,
+      value: wsConstant.WS_PACKAGE_HEADER_TOTAL_LENGTH
+    },
+    {
+      name: "Protocol Version",
+      key: "ver",
+      bytes: 2,
+      offset: wsConstant.WS_VERSION_OFFSET,
+      value: wsConstant.WS_BODY_PROTOCOL_VERSION_NORMAL
+    },
+    {
+      name: "Operation",
+      key: "op",
+      bytes: 4,
+      offset: wsConstant.WS_OPERATION_OFFSET,
+      value: wsConstant.WS_OP_USER_AUTHENTICATION
+    },
+    {
+      name: "Sequence Id",
+      key: "seq",
+      bytes: 4,
+      offset: wsConstant.WS_SEQUENCE_OFFSET,
+      value: wsConstant.WS_HEADER_DEFAULT_SEQUENCE
+    }];
+
+    /**
+     * ArrayBuffer转字符串
+     */
+    function decodeArrayBuffer(arrayBuffer) {
+      if (arrayBuffer) {
+        return decodeURIComponent(window.escape(String.fromCharCode.apply(null, new Uint8Array(arrayBuffer))));
+      }
+      return null;
+    }
+    /**
+     * 字符串转ArrayBuffer
+     */
+    function encodeArrayBuffer(json) {
+      if (json) {
+        var uint8Array = new Uint8Array(json.length);
+        for (var i = 0; i < json.length; i++) {
+          uint8Array[i] = json.charCodeAt(i);
+        }
+        return uint8Array.buffer;
+      }
+      return null;
+    }
+
+    function convertToArrayBuffer(json, opt) {
+      json = json || "";
+      var len = wsConstant.WS_PACKAGE_HEADER_TOTAL_LENGTH + json.length;
+      wsHeaderList[0].value = len;
+      wsHeaderList[3].value = opt;
+
+      var headerArrayBuffer = new ArrayBuffer(wsConstant.WS_PACKAGE_HEADER_TOTAL_LENGTH);
+      var dataView = new DataView(headerArrayBuffer);
+      wsHeaderList.forEach(function(item) {
+        item.bytes === 2 ? dataView.setInt16(item.offset, item.value) :
+        item.bytes === 4 && dataView.setInt32(item.offset, item.value);
+      });
+
+      var head = new Uint8Array(headerArrayBuffer);
+      var body = new Uint8Array(encodeArrayBuffer(json));
+
+      var unit8Array = new Uint8Array(head.byteLength + body.byteLength);
+      unit8Array.set(head, 0);
+      unit8Array.set(body, head.byteLength);
+      return unit8Array.buffer;
+    }
+
+    function convertToObject(arrayBuffer) {
+      var dataView = new DataView(arrayBuffer);
+      var res = { body: [] };
+      // 包头内容
+      wsHeaderList.forEach(function(item) {
+        item.bytes === 2 ? res[item.key] = dataView.getInt16(item.offset) :
+        item.bytes === 4 && (res[item.key] = dataView.getInt32(item.offset));
+      });
+      
+      if (res.op === wsConstant.WS_OP_HEARTBEAT_REPLY) {
+        // 心跳回应，返回的内容为32位整型
+        res.body = { onlineNum: dataView.getInt32(res.headerLen) };
+      } else if (res.op === wsConstant.WS_OP_MESSAGE) {
+        // buffer内容
+        if (res.ver === wsConstant.WS_BODY_PROTOCOL_VERSION_DEFLATE) {
+          var bodyArrayBuffer = arrayBuffer.slice(res.headerLen);
+          // 解压流内容
+          var bodyUint8Array = pako.inflate(new Uint8Array(bodyArrayBuffer));
+          // 内容由一小块二进制包组成，递归读取包内容
+          var body = getBody(bodyUint8Array.buffer, []);
+          res.body = body;
+        } else {
+          var bodyLength = dataView.byteLength - res.headerLen;
+          var array = [];
+          for (var i = 0; i < bodyLength; i++) {
+            array.push(dataView.getUint8(res.headerLen + i));
+          }
+          res.body = [JSON.parse(decodeArrayBuffer(array))];
+        }
+      }
+
+      return res;
+    }
+
+    function getBody(arrayBuffer, body) {
+      var dataView = new DataView(arrayBuffer);
+      var packetLen = dataView.getInt32(wsConstant.WS_PACKAGE_OFFSET);
+      var headerLen = dataView.getInt16(wsConstant.WS_HEADER_OFFSET);
+      body.push(JSON.parse(decodeArrayBuffer(arrayBuffer.slice(headerLen, packetLen))));
+      if (packetLen < arrayBuffer.byteLength) {
+        getBody(arrayBuffer.slice(packetLen), body);
+      }
+      return body;
+    }
+
+    function onMessageReceive(data) {
+      data.forEach(function(item) {
+        switch(item.cmd) {
+          case "DANMU_MSG":
+            console.log(`${item.info[2][1]}: ${item.info[1]}`);
+            break;
+          case "SEND_GIFT":
+            console.log(`${item.data.uname} ${item.data.action} ${item.data.num} 个 ${item.data.giftName}`);
+            break;
+          case "WELCOME":
+            console.log(`${item.data.uname} 进入直播间`);
+            break;
+          // 此处省略很多其他通知类型
+          default:
+            console.log(data);
+        }
+      });
+    }
+
+    var heartBeatInterval = 0;
+
+    var ws = new WebSocket("wss://tx-bj4-live-comet-02.chat.bilibili.com/sub");
+    ws.binaryType="arraybuffer";
+    ws.addEventListener("open", function() {
+      console.log("open");
+
+      var json = JSON.stringify({
+        uid: 0,
+        roomid: 394518,
+        protover: 2
+      });
+      // 发送进房信号
+      var arrayBuffer = convertToArrayBuffer(json, wsConstant.WS_OP_USER_AUTHENTICATION);
+      ws.send(arrayBuffer);
+      
+    });
+
+    ws.addEventListener("message", function(event) {
+      var res = convertToObject(event.data);
+      switch(res.op) {
+        case wsConstant.WS_OP_HEARTBEAT_REPLY:
+          console.log("房间人气...");
+          console.log(res.body);
+          break;
+        case wsConstant.WS_OP_MESSAGE:
+          console.log(res.body);
+          onMessageReceive(res.body);
+          break;
+        case wsConstant.WS_OP_CONNECT_SUCCESS:
+          console.log("进入房间...");
+          if (!heartBeatInterval) {
+            // 发送心跳
+            var arrayBuffer = convertToArrayBuffer("", wsConstant.WS_OP_HEARTBEAT);
+            ws.send(arrayBuffer);
+
+            // 每隔30秒发送一次心跳
+            heartBeatInterval = setInterval(() => {
+              var arrayBuffer = convertToArrayBuffer("", wsConstant.WS_OP_HEARTBEAT);
+              ws.send(arrayBuffer);
+            }, 30000);
+          }
+          break;
+        default:
+          console.log(res);
+      }
+    });
+
+    ws.addEventListener("close", function() {
+      console.log("close");
+      clearInterval(heartBeatInterval);
+    });
+
+    ws.addEventListener("error", function() {
+      console.error("error");
+      ws.close();
+    });
+  </script>
+</body>
+</html>

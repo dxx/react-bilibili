@@ -1,0 +1,31 @@
+{
+  "appenders": {
+    "console": {
+      "type": "console"
+    },
+    "access": {
+      "type": "dateFile",
+      "filename": "log/access.log",
+      "pattern": "-yyyy-MM-dd"
+    },
+    "errorFile": {
+      "type" : "file",
+      "filename": "log/errors.log"
+    },
+    "errors": {
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": "errorFile"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": ["console"],
+      "level": "DEBUG"
+    },
+    "http": {
+      "appenders": ["access", "errors"],
+      "level": "INFO"
+    }
+  }
+}

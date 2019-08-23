@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bilibili Api</title>
+</head>
+<body>
+  <h1>Bilibili Api</h1>
+  
+  <h3>首页</h3>
+  <div>
+    <h5>
+      <a href="/index" target="_blank">
+        列表
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/round-sowing" target="_blank">
+        首页轮播图
+      </a>
+    </h5>
+  </div>
+
+  <h3>分类</h3>
+  <div>
+    <h5>
+      <a href="/partitions" target="_blank">
+        分类
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/ranking/partitions" target="_blank">
+        排行榜分类
+      </a>
+    </h5>
+  </div>
+
+  <h3>排行榜</h3>
+  <div>
+    <h5>
+      <a href="/ranking/1" target="_blank">
+        列表
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/ranking/region?rId=1&day=7" target="_blank">
+        分类列表
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/ranking/archive?tId=24&p=1" target="_blank">
+        子分类列表
+      </a>
+    </h5>
+  </div>
+
+  <h3>视频详情</h3>
+  <div>
+    <h5>
+      <a href="/av/36631490" target="_blank">
+        详情
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/av/recommend/36631490" target="_blank">
+        推荐
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/av/replay?aId=36631490&p=1" target="_blank">
+        评论
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/av/barrage/64324758" target="_blank">
+        弹幕
+      </a>
+    </h5>
+  </div>
+
+  <h3>UP主</h3>
+  <div>
+    <h5>
+      <a href="/up/16539048" target="_blank">
+        个人信息
+      </a>
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <a href="/up/video?uId=16539048&p=1&size=10" target="_blank">
+        个人视频
+      </a>
+    </h5>
+  </div>
+
+  <h3>搜索</h3>
+  <div>
+    <h5>
+      <a href="/search/hotword" target="_blank">
+        热搜
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/search/suggest?w=欣小萌" target="_blank">
+        推荐
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      搜索
+      <input type="text" id="content" />
+      <button onclick="search()">搜索</button>
+    </h5>
+  </div>
+
+  <h3>直播</h3>
+  <div>
+    <h5>
+      <a href="/live/data" target="_blank">
+        直播列表
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/live/area" target="_blank">
+        直播分类
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/live/room/list?parentAreaId=0&areaId=0&page=1&pageSize=30" target="_blank">
+        房间列表
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/live/room/info?roomId=394518" target="_blank">
+        房间信息
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/live/room/gifts" target="_blank">
+        直播礼物
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/live/room/play_url?roomId=394518" target="_blank">
+        直播地址
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/live/room/danmu_config?roomId=394518" target="_blank">
+        弹幕配置
+      </a>
+    </h5>
+  </div>
+
+  <script type="text/javascript">
+    function search() {
+      let content = document.getElementById("content");
+      fetch("/search", {
+        method: "post",
+        body: JSON.stringify({
+          keyword: content.value,
+          page: 1,
+          size: 20,
+          searchType: "all",
+          order: "totalrank"
+        }),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(res => res.json())
+        .then(json => console.log(json));
+    }
+  </script>
+</body>
+</html>
