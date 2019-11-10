@@ -390,8 +390,9 @@ class VideoPlayer extends React.PureComponent<VideoPlayerProps, VideoPlayerState
   }
   private getVideoUrl(url) {
     const { videoURL } = this.context;
+    url = url.indexOf("https") != -1 ? encodeURIComponent(url) : `https:${encodeURIComponent(url)}`;
     // 拼接播放源地址
-    return `${videoURL}?video=https:${encodeURIComponent(url)}`;
+    return `${videoURL}?video=${url}`;
   }
   public render() {
     const { live, video } = this.props;
