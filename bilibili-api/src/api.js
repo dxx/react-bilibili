@@ -305,6 +305,5 @@ module.exports = {
   fetchLiveGift,
   fetchRoomList,
   fetchRoomInfo,
-  fetchRoomInfo,
   fetchDanMuConfig
 }
