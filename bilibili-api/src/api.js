@@ -62,7 +62,7 @@ const fetchIndexData = () => {
   })
     .then(res => res.text())
     .then(body => {
-      const initialState = getInitialStateFromHTML(body, 1);
+      const initialState = getInitialStateFromHTML(body, 2);
       return {
         partitions: initialState.partitionList,
         content: initialState.reduxAsyncConnect
@@ -78,7 +78,7 @@ const fetchPartitionData = () => {
   })
     .then(res => res.text())
     .then(body => {
-      const initialState = getInitialStateFromHTML(body, 1);
+      const initialState = getInitialStateFromHTML(body, 2);
       return {
         partitions: initialState.partitionList,
       };
@@ -93,7 +93,7 @@ const fetchRankingPartition = () => {
   })
     .then(res => res.text())
     .then(body => {
-      const initialState = getInitialStateFromHTML(body, 1);
+      const initialState = getInitialStateFromHTML(body, 2);
       return {
         partitions: initialState.reduxAsyncConnect.partitionList,
       };
@@ -122,7 +122,7 @@ const fetchUserData = (uId) => {
     })
       .then(res => res.text())
       .then(body => {
-        const initialState = getInitialStateFromHTML(body, 1);
+        const initialState = getInitialStateFromHTML(body, 2);
         return initialState.reduxAsyncConnect;
       }),
     fetch(URL_UP_USER_STATUS.replace("{mid}", uId))
