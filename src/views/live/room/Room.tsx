@@ -59,7 +59,7 @@ function Room(props: RoomProps) {
 
     getDanMuConfig(live.roomId).then((result) => {
       if (result.code === "1") {
-        const url = `wss://${result.data.host_server_list[0].host}/sub`;
+        const url = `wss://${result.data.host}/sub`;
         const chatWebSocket = new ChatWebSocket(url, live.roomId);
 
         chatWebSocket.on(Events.HEARTBEAT_REPLY, ({onlineNum}) => {
