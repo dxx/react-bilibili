@@ -8,7 +8,7 @@ const URL_VIDEO_DETAIL = "https://m.bilibili.com/video/av{aid}.html";
 // 排行榜分类
 const URL_RANKING_PARTITION = "https://m.bilibili.com/ranking.html";
 // 用户信息
-const URL_UP_USER = "https://m.bilibili.com/space/{mid}";
+const URL_UP_USER = "https://api.bilibili.com/x/space/acc/info?mid={mid}";
 // 用户状态
 const URL_UP_USER_STATUS = "https://api.bilibili.com/x/relation/stat?vmid={mid}";
 // 首页轮播
@@ -120,11 +120,8 @@ const fetchUserData = (uId) => {
         "User-Agent": userAgent
       }
     })
-      .then(res => res.text())
-      .then(body => {
-        const initialState = getInitialStateFromHTML(body, 2);
-        return initialState.reduxAsyncConnect;
-      }),
+      .then(res => res.json())
+      .then(body => body.data),
     fetch(URL_UP_USER_STATUS.replace("{mid}", uId))
       .then(res => res.json())
       .then(body => body.data)
