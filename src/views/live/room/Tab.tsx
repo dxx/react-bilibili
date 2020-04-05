@@ -57,7 +57,7 @@ const sendMsg = (msg) => {
   setTimeout(() => {
     let needScroll = true;
     // 判断是否滚动到最底部
-    if (chatDOM.scrollTop <
+    if (Math.ceil(chatDOM.scrollTop) <
       chatDOM.scrollHeight - chatDOM.clientHeight) {
       needScroll = false;
     }

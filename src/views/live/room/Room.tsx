@@ -44,12 +44,12 @@ function Room(props: RoomProps) {
       if (result.code === "1") {
         const data = result.data;
         const upUser = new UpUser(
-          data.upUserInfo.mid,
-          data.upUserInfo.name,
-          data.upUserInfo.face,
-          data.upUserInfo.level,
-          data.upUserInfo.sex,
-          data.upUserInfo.sign,
+          data.mid,
+          data.name,
+          data.face,
+          data.level,
+          data.sex,
+          data.sign,
           data.status.following,
           data.status.follower
         );
