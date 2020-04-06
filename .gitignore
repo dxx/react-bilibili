@@ -7,6 +7,8 @@ node_modules
 # api service log
 /bilibili-api/log
 
+/resources
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
