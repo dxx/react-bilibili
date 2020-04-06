@@ -69,6 +69,8 @@ app.get("*", isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res));
 });
 
-app.listen(3010, () => {
-  console.log("Your app is running");
+const port = 3010;
+
+app.listen(port, () => {
+  console.log("Your app is running at port " + port);
 });
