@@ -10,13 +10,6 @@
   <h1>Bilibili Api</h1>
   
   <h3>首页</h3>
-  <div>
-    <h5>
-      <a href="/index" target="_blank">
-        列表
-      </a>
-    </h5>
-  </div>
 
   <div>
     <h5>
@@ -72,6 +65,13 @@
     <h5>
       <a href="/av/36631490" target="_blank">
         详情
+      </a>
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <a href="/av/play_url?aId=36631490&cId=64324758" target="_blank">
+        视频地址
       </a>
     </h5>
   </div>
@@ -200,7 +200,7 @@
           keyword: content.value,
           page: 1,
           size: 20,
-          searchType: "all",
+          searchType: "video",
           order: "totalrank"
         }),
         headers: {

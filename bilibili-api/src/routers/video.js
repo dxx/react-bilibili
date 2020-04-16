@@ -1,6 +1,7 @@
 const express = require("express");
 const {
-  fetchDetailData,
+  fetchVideoDetail,
+  fetchPlayUrl,
   fetchRecommendById,
   fetchReplay,
   fetchBarrage
@@ -10,24 +11,38 @@ const router = express.Router();
 
 // 视频详情
 router.get("/av/:aId", (req, res, next) => {
-  if (req.path == "/av/replay") {
+  if (req.path == "/av/replay" || req.path == "/av/play_url") {
     next();
     return;
   }
-  fetchDetailData(req.params.aId).then((data) => {
+  fetchVideoDetail(req.params.aId).then((data) => {
     const resData = {
       code: "1",
       msg: "success",
       data
     }
-    const initUrl = resData.data.videoInfo.initUrl;
-    if (initUrl.indexOf("cn-sh-ix-acache") !== -1) {
-      initUrl.match("//(.*?)/");
-      // 替换播放源
-      resData.data.videoInfo.initUrl = initUrl.replace(
-        RegExp.$1,
-        "upos-hz-mirrorkodo.acgvideo.com"
-      );
+    if (data.code === 0) {
+      resData.data = data.data;
+    } else {
+      resData.code = "0";
+      resData.msg = "fail";
+    }
+    res.send(resData);
+  }).catch(next);
+});
+
+// 视频地址
+router.get("/av/play_url", (req, res, next) => {
+  fetchPlayUrl(req.query.aId, req.query.cId).then((data) => {
+    let resData = {
+      code: "1",
+      msg: "success"
+    }
+    if (data.code === 0) {
+      resData.data = data.data;
+    } else {
+      resData.code = "0";
+      resData.msg = "fail";
     }
     res.send(resData);
   }).catch(next);

@@ -41,7 +41,7 @@ router.get("/search/suggest", (req, res, next) => {
 
 router.post("/search", (req, res, next) => {
   const param = {
-    keyword: encodeURI(req.body.keyword),
+    keyword: req.body.keyword,
     page: req.body.page,
     size: req.body.size,
     searchType: req.body.searchType,
@@ -54,10 +54,11 @@ router.post("/search", (req, res, next) => {
       data: {}
     }
     if (data.code === 0) {
-      resData.data.numPages = data.numPages;
-      resData.data.numResults = data.numResults;
-      resData.data.pageInfo = data.pageinfo;
-      resData.data.result = data.result;
+      resData.data.numPages = data.data.numPages;
+      resData.data.numResults = data.data.numResults;
+      resData.data.page = data.data.page;
+      resData.data.size = data.data.pagesize;
+      resData.data.result = data.data.result ? data.data.result : [];
     } else {
       resData.code = "0";
       resData.msg = "fail";

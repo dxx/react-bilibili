@@ -1,12 +1,6 @@
 const fetch = require("node-fetch");
-const { getInitialStateFromHTML } = require("./util");
+const querystring = require("querystring");
 
-// 首页
-const URL_INDEX = "https://m.bilibili.com/index.html";
-// 视频详情页
-const URL_VIDEO_DETAIL = "https://m.bilibili.com/video/av{aid}.html";
-// 排行榜分类
-const URL_RANKING_PARTITION = "https://m.bilibili.com/ranking.html";
 // 用户信息
 const URL_UP_USER = "https://api.bilibili.com/x/space/acc/info?mid={mid}";
 // 用户状态
@@ -19,12 +13,18 @@ const URL_RANKING = "https://api.bilibili.com/x/web-interface/ranking?rid={rid}&
 const URL_RANKING_REGION = "https://api.bilibili.com/x/web-interface/ranking/region?rid={rid}&day={day}";
 // 当前分类排行
 const URL_RANKING_ARCHIVE = "https://api.bilibili.com/archive_rank/getarchiverankbypartion?tid={tid}&pn={p}";
+// 视频详情
+const URL_VIDEO_DETAIL = "https://api.bilibili.com/x/web-interface/view?aid={aid}&bvid=";
+// 详情推荐
+// const URL_RECOMMEND = "https://comment.bilibili.com/recommendnew,{aid}";
+const URL_RECOMMEND = "https://api.bilibili.com/x/web-interface/archive/related?aid={aid}&context=";
+// 视频播放地址
+const URL_PLAY_URL = "https://api.bilibili.com/x/player/playurl?cid={cid}&avid={aid}&platform=html5&otype=json&qn=16&type=mp4&html5=1";
+// 详情弹幕
+// const URL_BARRAGE = "https://comment.bilibili.com/{cid}.xml";
+const URL_BARRAGE = "https://api.bilibili.com/x/v1/dm/list.so?oid={cid}";
 // 详情回复
 const URL_REPLAY = "https://api.bilibili.com/x/v2/reply?type=1&sort=2&oid={oid}&pn={p}&nohot=1";
-// 详情推荐
-const URL_RECOMMEND = "https://comment.bilibili.com/recommendnew,{aid}";
-// 详情弹幕
-const URL_BARRAGE = "https://comment.bilibili.com/{cid}.xml";
 // 用户视频
 const URL_VIDEO = "https://space.bilibili.com/ajax/member/getSubmitVideos?mid={mid}&page={p}&pagesize={size}&tid=0&keyword=&order=pubdate";
 // 热搜
@@ -32,7 +32,8 @@ const URL_HOT_WORD = "https://s.search.bilibili.com/main/hotword";
 // 搜索推荐
 const URL_SUGGEST = "https://s.search.bilibili.com/main/suggest";
 // 搜索
-const URL_SEARCH = "https://m.bilibili.com/search/searchengine";
+// const URL_SEARCH = "https://m.bilibili.com/search/searchengine";
+const URL_SEARCH = "https://api.bilibili.com/x/web-interface/search/type";
 
 
 // 直播首页
@@ -54,64 +55,7 @@ const URL_DANMMU_CONFIG = "https://api.live.bilibili.com/room/v1/Danmu/getConf?r
 const userAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) " +
   "AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1";
 
-const fetchIndexData = () => {
-  return fetch(URL_INDEX, {
-    headers: {
-      "User-Agent": userAgent
-    }
-  })
-    .then(res => res.text())
-    .then(body => {
-      const initialState = getInitialStateFromHTML(body, 2);
-      return {
-        partitions: initialState.partitionList,
-        content: initialState.reduxAsyncConnect
-      };
-    });
-}
 
-const fetchPartitionData = () => {
-  return fetch(URL_INDEX, {
-    headers: {
-      "User-Agent": userAgent
-    }
-  })
-    .then(res => res.text())
-    .then(body => {
-      const initialState = getInitialStateFromHTML(body, 2);
-      return {
-        partitions: initialState.partitionList,
-      };
-    });
-}
-
-const fetchRankingPartition = () => {
-  return fetch(URL_RANKING_PARTITION, {
-    headers: {
-      "User-Agent": userAgent
-    }
-  })
-    .then(res => res.text())
-    .then(body => {
-      const initialState = getInitialStateFromHTML(body, 2);
-      return {
-        partitions: initialState.reduxAsyncConnect.partitionList,
-      };
-    });
-}
-
-const fetchDetailData = (aId) => {
-  return fetch(URL_VIDEO_DETAIL.replace("{aid}", aId), {
-    headers: {
-      "User-Agent": userAgent
-    }
-  })
-    .then(res => res.text())
-    .then(body => {
-      const initialState = getInitialStateFromHTML(body, 4);
-      return initialState.reduxAsyncConnect;
-    });
-}
 
 const fetchUserData = (uId) => {
   return Promise.all([
@@ -151,6 +95,18 @@ const fetchRankingRegionById = (rId, day) => {
 
 const fetchRankingArchiveById = (tId, p) => {
   return fetch(URL_RANKING_ARCHIVE.replace("{tid}", tId).replace("{p}", p))
+    .then(res => res.json())
+    .then(json => json);
+}
+
+const fetchVideoDetail = (aId) => {
+  return fetch(URL_VIDEO_DETAIL.replace("{aid}", aId))
+    .then(res => res.json())
+    .then(json => json);
+}
+
+const fetchPlayUrl = (aId, cId) => {
+  return fetch(URL_PLAY_URL.replace("{aid}", aId).replace("{cid}", cId))
     .then(res => res.json())
     .then(json => json);
 }
@@ -208,19 +164,11 @@ const fetchSearchContent = (param) => {
     keyword: param.keyword,
     page: param.page,
     pagesize: param.size,
-    search_type: param.searchType, // all（全部） bangumi(番剧) upuser（up主）
-    order: param.order,  // totalrank（默认） click（播放多） pubdate（发布日期） dm（弹幕）
-    platform: "h5",
-    main_ver: "v3",
-    bangumi_num: 3,
-    movie_num: 3
+    search_type: param.searchType, // video（综合） media_bangumi(番剧) bili_user（up主）
+    order: param.order // totalrank（默认） click（播放多） pubdate（发布日期） dm（弹幕）
   };
-  return fetch(URL_SEARCH, {
-      method: "post",
-      body: JSON.stringify(param),
-      headers: {
-        "Content-Type": "application/json"
-      }
+  return fetch(URL_SEARCH + `?${querystring.stringify(param)}`, {
+      method: "get"
     })
       .then(res => res.json())
       .then(json => json)
@@ -280,15 +228,13 @@ const fetchDanMuConfig = (roomId) => {
 }
 
 module.exports = {
-  fetchIndexData,
-  fetchPartitionData,
-  fetchRankingPartition,
-  fetchDetailData,
   fetchUserData,
   fetchRoundSowing,
   fetchRankingById,
   fetchRankingRegionById,
   fetchRankingArchiveById,
+  fetchVideoDetail,
+  fetchPlayUrl,
   fetchRecommendById,
   fetchReplay,
   fetchBarrage,
