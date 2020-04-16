@@ -34,13 +34,13 @@ const VideoItem = (props: VideoItemProps) => {
                   <span className={`${style.playIcon} icon-play-count`} />
                   <span className={style.playCount}>
                     {
-                      video.playCount ? formatTenThousand(video.playCount) : "--"
+                      video.playCount ? formatTenThousand(video.playCount) : "0"
                     }
                   </span>
                   <span className={`${style.barrageIcon} icon-barrage-count`} />
                   <span className={style.barrageCount}>
                     {
-                      video.barrageCount ? formatTenThousand(video.barrageCount) : "--"
+                      video.barrageCount ? formatTenThousand(video.barrageCount) : "0"
                     }
                   </span>
                 </div>

@@ -48,12 +48,12 @@ function createVideoByDetail(data): Video {
     data.stat.view,
     data.stat.danmaku,
     data.pubdate,
-    data.initDuration,
+    data.duration,
     data.cid,
-    data.initUrl,
+    "",
     new UpUser(data.owner.mid, data.owner.name, data.owner.face),
     data.tid ? new PartitionType(data.tid, data.tname) : null,
-    data.reid ? new PartitionType(data.reid, data.toptype) : null
+    // data.reid ? new PartitionType(data.reid, data.toptype) : null
   );
 }
 

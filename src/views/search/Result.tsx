@@ -30,8 +30,8 @@ enum OrderType {
 }
 
 enum SearchType {
-  ALL = "all", // 全部
-  UPUSER = "upuser" // up主
+  ALL = "video", // 综合
+  UPUSER = "bili_user" // up主
 }
 
 class Result extends React.Component<ResultProps, ResultState> {
@@ -89,8 +89,7 @@ class Result extends React.Component<ResultProps, ResultState> {
         let upUsers = [];
         let upUserCount = this.state.upUserCount;
         if (this.searchType === SearchType.ALL) {  // 综合
-          videos = result.data.result.video.map((item) => createVideoBySearch(item));
-          upUserCount = result.data.pageInfo.upuser.numResults;
+          videos = result.data.result.map((item) => createVideoBySearch(item));
         } else {  // up主
           upUsers = result.data.result.map((item) => ({
               videoCount: item.videos,
@@ -192,7 +191,7 @@ class Result extends React.Component<ResultProps, ResultState> {
                             <div className={style.duration}>{formatDuration(video.duration, "0#:##:##")}</div>
                         </div>
                         <div className={style.infoWrapper}>
-                          <p>{video.title}</p>
+                          <p dangerouslySetInnerHTML={{__html: video.title}}/>
                           <div className={style.ownerWrapper}>
                             <span className={style.iconUp}/>
                             <span className={style.owner}>{video.owner.name}</span>

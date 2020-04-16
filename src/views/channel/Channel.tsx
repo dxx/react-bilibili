@@ -99,7 +99,7 @@ class Channel extends React.Component<ChannelProps, ChannelState> {
     // 获取排行榜页面分类
     getRankingPartitions().then((result) => {
       if (result.code === "1") {
-        this.rankingPartitions = createPartitionTypes(result.data.partitions);
+        this.rankingPartitions = createPartitionTypes(result.data);
       }
     });
   }

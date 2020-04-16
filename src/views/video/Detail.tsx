@@ -11,6 +11,7 @@ import { Video, createVideo, UpUser } from "../../models";
 import { formatTenThousand, formatDuration } from "../../util/string";
 import { getRecommendVides, getComments } from "../../api/video";
 import { getPicSuffix } from "../../util/image";
+import { formatDate } from "../../util/datetime";
 import storage from "../../util/storage";
 
 import style from "./detail.styl?css-modules";
@@ -131,7 +132,7 @@ class Detail extends React.Component<DetailProps, DetailState> {
         if (result.data.replies) {
           comments = result.data.replies.map((item) => {
             let date: any = new Date(item.ctime * 1000); // unix时间转换成本地时间戳
-            date = date.getMonth() + 1 + "-" + date.getDate();
+            date = formatDate(date, "yyyy-MM-dd hh:mm");
             return {
               content: item.content.message,
               date,
@@ -242,8 +243,8 @@ class Detail extends React.Component<DetailProps, DetailState> {
               <div className={style.position}>
                 <a href="/index">主页</a>
                 <span>&gt;</span>
-                <a href={"/channel/" + video.oneLevel.id}>{video.oneLevel.name}</a>
-                <span>&gt;</span>
+                {/* <a href={"/channel/" + video.oneLevel.id}>{video.oneLevel.name}</a>
+                <span>&gt;</span> */}
                 <a href={"/channel/" + video.twoLevel.id}>{video.twoLevel.name}</a>
                 <span>&gt;</span>
                 <span className={style.aid}>av{video.aId}</span>
@@ -258,7 +259,7 @@ class Detail extends React.Component<DetailProps, DetailState> {
                   <a href={"/video/av" + v.aId}>
                     <div className={style.imageContainer}>
                       <LazyLoad height="10.575rem">
-                        <img src={this.getPicUrl("https:" + v.pic, "@320w_200h")} alt={v.title} />
+                        <img src={this.getPicUrl(v.pic, "@320w_200h")} alt={v.title} />
                       </LazyLoad>
                       <div className={style.duration}>{formatDuration(v.duration, "0#:##:##")}</div>
                     </div>

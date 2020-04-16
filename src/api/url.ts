@@ -15,6 +15,7 @@ const URL_VIDEO_DETAIL = prefix + "/av";
 const URL_VIDEO_RECOMMEND = prefix + "/av/recommend";
 const URL_VIDEO_REPLAY = prefix + "/av/replay";
 const URL_VIDEO_BARRAG = prefix + "/av/barrage";
+const URL_PLAY_URL = prefix + "/av/play_url";
 
 const URL_UP_USER = prefix + "/up";
 const URL_USER_VIDEO = prefix + "/up/video";
@@ -43,6 +44,7 @@ export {
   URL_VIDEO_RECOMMEND,
   URL_VIDEO_REPLAY,
   URL_VIDEO_BARRAG,
+  URL_PLAY_URL,
   URL_UP_USER,
   URL_USER_VIDEO,
   URL_SEARCH_HOTWORD,
