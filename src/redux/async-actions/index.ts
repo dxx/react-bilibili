@@ -27,15 +27,17 @@ export default function getIndexContent() {
       }
       if (result2.code === "1") {
         const data = result2.data;
-        const banners = data.map((item) => (
-          {
-            id: item.id,
-            name: item.name,
-            pic: item.pic,
-            url: item.url
-          }
-        ));
-        dispatch(setBanners(banners));
+        if (data) {
+          const banners = data.map((item) => (
+            {
+              id: item.id,
+              name: item.name,
+              pic: item.pic,
+              url: item.url
+            }
+          ));
+          dispatch(setBanners(banners));
+        }
       }
       if (result3.code === "1") {
         const list = result3.data.list;

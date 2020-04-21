@@ -137,16 +137,20 @@ class Index extends React.Component<IndexProps> {
         </div>
         {/* 内容 */}
         <div className={style.contentWrapper}>
-          <div className={style.bannerSlider}>
-            <div className="swiper-container">
-              <div className="swiper-wrapper">
-                {bannerElements}
+          {
+            this.props.banners.length > 0 ? (
+              <div className={style.bannerSlider}>
+                <div className="swiper-container">
+                  <div className="swiper-wrapper">
+                    {bannerElements}
+                  </div>
+                  <div className="swiper-pagination-wrapper">
+                    <div className="swiper-pagination clear" />
+                  </div>
+                </div>
               </div>
-              <div className="swiper-pagination-wrapper">
-                <div className="swiper-pagination clear" />
-              </div>
-            </div>
-          </div>
+            ) : null
+          }
           <div className={style.videoList + " clear"}>
            {additionalVideoElements}
            {videoElements}
