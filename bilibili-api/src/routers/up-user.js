@@ -29,8 +29,13 @@ router.get("/up/video", (req, res, next) => {
   fetchUserVideo(param).then((data) => {
     let resData = {
       code: "1",
-      msg: "success",
-      data
+      msg: "success"
+    }
+    if (data.code === 0) {
+      resData.data = data.data;
+    } else {
+      resData.code = "0";
+      resData.msg = "fail";
     }
     res.send(resData);
   }).catch(next);

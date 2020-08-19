@@ -82,9 +82,9 @@ class UpUser extends React.Component<UpUserProps, UpUserState> {
       this.videoPage.pageNumber,
       this.videoPage.pageSize).then((result) => {
         if (result.code === "1") {
-          const vList = result.data.data.vlist;
+          const vList = result.data.list.vlist;
           const videos = vList.map((data) => createVideoByUser(data));
-          const showLoadMore = this.videoPage.pageNumber < result.data.data.pages ? true : false;
+          const showLoadMore = this.videoPage.pageNumber < result.data.page.count ? true : false;
           this.setState({
             loading: false,
             showLoadMore,

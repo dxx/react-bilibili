@@ -26,7 +26,8 @@ const URL_BARRAGE = "https://api.bilibili.com/x/v1/dm/list.so?oid={cid}";
 // 详情回复
 const URL_REPLAY = "https://api.bilibili.com/x/v2/reply?type=1&sort=2&oid={oid}&pn={p}&nohot=1";
 // 用户视频
-const URL_VIDEO = "https://space.bilibili.com/ajax/member/getSubmitVideos?mid={mid}&page={p}&pagesize={size}&tid=0&keyword=&order=pubdate";
+// const URL_VIDEO = "https://space.bilibili.com/ajax/member/getSubmitVideos?mid={mid}&page={p}&pagesize={size}&tid=0&keyword=&order=pubdate";
+const URL_VIDEO = "https://api.bilibili.com/x/space/arc/search?pn={p}&ps={size}&order=click&keyword=&mid={mid}"
 // 热搜
 const URL_HOT_WORD = "https://s.search.bilibili.com/main/hotword";
 // 搜索推荐
