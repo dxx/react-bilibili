@@ -14,7 +14,7 @@
     "express": "^4.16.4",
     "file-type": "^10.6.0",
     "log4js": "^3.0.6",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.18.7",
     "xml2js": "^0.4.19"
   },
