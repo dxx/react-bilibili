@@ -13,7 +13,7 @@
 > 此项目仅供学习和交流
 
 ##
-本项目基于此[SSR服务端渲染](https://github.com/code-mcx/react-ssr)模板，使用React16.6，Typescript开发
+本项目基于此[SSR服务端渲染](https://github.com/dxx/react-ssr)模板，使用React16.6，Typescript开发
 
 ## 技术点
 * react
@@ -45,7 +45,7 @@
 
 ## 运行
 
-> 先运行服务端接口，见[bilibili-api](https://github.com/code-mcx/react-bilibili/tree/master/bilibili-api)目录
+> 先运行服务端接口，见[bilibili-api](https://github.com/dxx/react-bilibili/tree/master/bilibili-api)目录
 
 ### `npm install`
 安装项目依赖包
