@@ -61,15 +61,15 @@
 
 ## 屏幕截图
 <p align="center">
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/01_index.png" width="326px" height="680px" alt="index" />
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/02_channel.png" width="326px" height="680px" alt="channel" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/01_index.png" width="326px" height="680px" alt="index" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/02_channel.png" width="326px" height="680px" alt="channel" />
 
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/03_ranking.png" width="326px" height="680px" alt="ranking" />
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/04_detail.png" width="326px" height="680px" alt="detail" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/03_ranking.png" width="326px" height="680px" alt="ranking" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/04_detail.png" width="326px" height="680px" alt="detail" />
 
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/05_detail.png" width="326px" height="680px" alt="detail" />
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/06_space.png" width="326px" height="680px" alt="space" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/05_detail.png" width="326px" height="680px" alt="detail" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/06_space.png" width="326px" height="680px" alt="space" />
 
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/07_search.png" width="326px" height="680px" alt="search" />
-  <img src="https://code-mcx.github.io/static-resource/react-bilibili/screenshots/08_history.png" width="326px" height="680px" alt="history" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/07_search.png" width="326px" height="680px" alt="search" />
+  <img src="https://dxx.github.io/static-resource/react-bilibili/screenshots/08_history.png" width="326px" height="680px" alt="history" />
 </p>
