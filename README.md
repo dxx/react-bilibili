@@ -13,7 +13,7 @@
 > 此项目仅供学习和交流
 
 ##
-本项目基于此[SSR服务端渲染](https://github.com/code-mcx/react-ssr)模板，使用React16.8，Typescript开发
+本项目基于此[SSR服务端渲染](https://github.com/dxx/react-ssr)模板，使用React16.8，Typescript开发
 
 ## 技术点
 * react
