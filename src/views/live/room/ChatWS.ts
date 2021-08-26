@@ -79,7 +79,7 @@ export enum Events {
 
 export default class ChatWebSocket {
   private webSocket: WebSocket;
-  private heartBeatInterval: number;
+  private heartBeatInterval: NodeJS.Timeout;
   private eventHandle: Map<Events, (body: any) => void>;
   public constructor(url: string, public roomId: number) {
     this.webSocket = new WebSocket(url);
