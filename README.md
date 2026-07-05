@@ -10,7 +10,7 @@
 # react-bilibili
 > **此项目仅供学习和交流，不得用于商业用途**
 
-高仿B站web移动端
+高仿B站web移动端。**项目已停止维护**。
 
 ##
 本项目基于此[SSR服务端渲染](https://github.com/dxx/react-ssr)模板，使用React16.8，Typescript开发
