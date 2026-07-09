@@ -14,7 +14,7 @@
   "dependencies": {
     "@loadable/component": "^5.2.1",
     "@loadable/server": "^5.2.0",
-    "cross-fetch": "^2.2.3",
+    "cross-fetch": "^3.1.5",
     "express": "^4.16.4",
     "hls.js": "^0.12.4",
     "pako": "^1.0.10",
